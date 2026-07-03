@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daniil Meladze — AI Product Manager</title>
+  <meta name="description" content="Product manager for AI products. I turn business problems into working AI solutions and ship them.">
+  <meta name="theme-color" content="#FBF7F2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daniil Meladze — AI Product Manager">
+  <meta property="og:description" content="Product manager for AI products. I turn business problems into working AI solutions and ship them.">
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daniil Meladze — AI Product Manager">
+  <meta name="twitter:description" content="Product manager for AI products. I turn business problems into working AI solutions and ship them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #FBF7F2;
+  --bg-alt: #F4EEE6;
+  --surface: #FFFDFB;
+  --ink: #26201B;
+  --ink-2: #6F6256;
+  --muted: #6F6256;
+  --accent: #D9663F;
+  --accent-hover: #C2542F;
+  --accent-text: #B44A26;
+  --border: #E0D6CB;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(38,32,27,.04), 0 8px 24px rgba(38,32,27,.06);
+  --maxw: 1120px;
+  --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --space-section: clamp(72px, 10vw, 132px);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding-block:var(--space-section);scroll-margin-top:80px}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.1}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{transition:none;opacity:1;transform:none}}
+
+/* ===== Atmosphere: warm paper + subtle grain ===== */
+body{position:relative}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:#fff}
+
+/* ===== Shared ===== */
+.label{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);font-weight:500}
+.section-head{margin-bottom:48px;max-width:680px}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-top:14px}
+.section-hint{margin-top:12px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted)}
+
+.btn-primary,.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+  padding:13px 22px;border-radius:var(--radius-sm);text-decoration:none;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease;
+}
+.btn-primary{background:var(--accent-text);color:#fff;border:1px solid var(--accent-text)}
+.btn-primary:hover{background:#A23F1F;border-color:#A23F1F;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+.chip{
+  display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;
+  color:var(--ink-2);background:var(--bg-alt);border:1px solid var(--border);
+  padding:5px 10px;border-radius:999px;
+}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ===== Hero ===== */
+#hero{padding-top:clamp(90px,12vw,140px);position:relative;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38% 38% at 18% 28%, rgba(217,102,63,.12), transparent 70%),
+    radial-gradient(42% 42% at 82% 18%, rgba(217,102,63,.08), transparent 72%),
+    radial-gradient(40% 40% at 65% 85%, rgba(110,139,110,.07), transparent 72%);
+  filter:blur(6px);animation:heroDrift 22s ease-in-out infinite alternate}
+#hero .container{position:relative;z-index:1}
+.hero-grid{max-width:820px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero-eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(217,102,63,.15);animation:dotPulse 2.6s ease-in-out infinite}
+.hero-eyebrow span{font-family:var(--font-mono);font-size:13px;color:var(--ink-2)}
+#hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.04;letter-spacing:-.03em;font-weight:800}
+#hero h1 .hl{color:var(--accent)}
+.hero-sub{margin-top:22px;font-size:clamp(16px,1.4vw,19px);color:var(--ink-2);max-width:34em}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-proof{margin-top:52px;display:flex;flex-wrap:wrap;column-gap:0;row-gap:18px;border-top:1px solid var(--border);padding-top:26px}
+.proof-item{padding-right:34px;margin-right:34px}
+.proof-item:not(:last-child){border-right:1px solid var(--border)}
+.proof-item:last-child{margin-right:0;padding-right:0}
+.proof-value{font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.02em}
+.proof-label{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-top:4px;max-width:18ch;line-height:1.4}
+/* staggered entrance + accent sweep + living background */
+#hero.in .hero-eyebrow,#hero.in h1,#hero.in .hero-sub,#hero.in .hero-ctas,#hero.in .hero-proof{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) backwards}
+#hero.in .hero-eyebrow{animation-delay:.05s}
+#hero.in h1{animation-delay:.15s}
+#hero.in .hero-sub{animation-delay:.32s}
+#hero.in .hero-ctas{animation-delay:.46s}
+#hero.in .hero-proof{animation-delay:.60s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes heroDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3%,2%,0) scale(1.07)}}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px rgba(217,102,63,.15)}50%{box-shadow:0 0 0 7px rgba(217,102,63,.05)}}
+@media (prefers-reduced-motion: reduce){
+  #hero::before{animation:none}
+  .hero-eyebrow .dot{animation:none}
+  #hero.in .hero-eyebrow,#hero.in h1,#hero.in .hero-sub,#hero.in .hero-ctas,#hero.in .hero-proof{animation:none}
+}
+
+/* ===== Cases ===== */
+#cases{background:var(--bg-alt);border-block:1px solid var(--border)}
+#cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start}
+.case-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;position:relative}
+.case-card:hover,.case-card:focus-visible{transform:translateY(-4px);box-shadow:0 2px 4px rgba(38,32,27,.05),0 18px 40px rgba(38,32,27,.10);border-color:var(--accent)}
+.case-head{display:flex;align-items:center;gap:10px}
+.case-icon{display:inline-flex;color:var(--accent);flex:none}
+.case-icon svg{width:20px;height:20px}
+.case-tag{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
+.case-title{font-size:19px;margin-top:14px;letter-spacing:-.01em}
+.case-stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
+.case-stack .chip{font-size:11px;padding:4px 9px}
+.case-essence{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.5;max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease,margin-top .35s ease}
+.case-card:hover .case-essence,.case-card:focus-visible .case-essence,.case-card.open .case-essence{max-height:8em;opacity:1;margin-top:14px}
+.case-metric{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;line-height:1.4;letter-spacing:.01em;color:var(--accent-text)}
+.case-detail{display:none;margin:10px 0 0;color:var(--ink-2);font-size:14px;line-height:1.55}
+.case-card.open .case-detail{display:block}
+
+/* ===== Approach ===== */
+#approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px}
+.pillar{padding:22px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+.pillar-num{font-family:var(--font-mono);font-size:13px;color:var(--accent-text);font-weight:600}
+.pillar h3{font-size:18px;margin-top:10px;letter-spacing:-.01em}
+.pillar p{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+
+/* ===== Experience ===== */
+#experience-list{max-width:780px}
+.job{padding:18px 0;border-top:1px solid var(--border)}
+.job:first-child{border-top:0}
+.job-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.job-head h3{font-size:18px;letter-spacing:-.01em}
+.job-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);background:var(--bg-alt);border:1px solid var(--border);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.job-essence{margin-top:8px;color:var(--ink-2);font-size:14.5px;line-height:1.5;max-width:46em}
+
+/* ===== Education ===== */
+#education{background:var(--bg-alt);border-block:1px solid var(--border)}
+.edu{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0;border-top:1px solid var(--border)}
+.edu:first-child{border-top:0}
+.edu h3{font-size:17px;letter-spacing:-.01em;font-weight:700}
+.edu-org{color:var(--ink-2);font-size:14px;margin-top:3px}
+
+/* ===== Stack ===== */
+.stack-group{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--border);align-items:start}
+.stack-group:first-child{border-top:0}
+#stack-groups{border-top:1px solid var(--border)}
+.stack-name{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ===== Nav ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,247,242,.82);
+  backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px}
+.nav-brand{font-weight:800;letter-spacing:-.02em;font-size:16px}
+.nav-links{display:flex;gap:24px;margin-left:auto}
+.nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none;transition:color .2s ease}
+.nav-links a:hover{color:var(--accent)}
+.nav-loc{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+#lang-toggle{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--ink);
+  background:transparent;border:1px solid var(--border);border-radius:999px;
+  padding:6px 12px;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+#lang-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px 10px;background:transparent;border:0;cursor:pointer}
+.nav-burger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+.nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-burger span:nth-child(2){opacity:0}
+.nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== Personal ===== */
+#personal{background:var(--bg-alt);border-block:1px solid var(--border)}
+
+/* ===== Contact ===== */
+.contact-inner{max-width:760px}
+#contact h2{font-size:clamp(30px,4.4vw,48px);margin-top:14px;letter-spacing:-.02em}
+#contact p{margin-top:16px;color:var(--ink-2);font-size:18px}
+.contact-links{margin-top:30px;display:flex;align-items:center;gap:14px 26px;flex-wrap:wrap}
+.contact-link{font-family:var(--font-mono);font-size:14px;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .2s ease,border-color .2s ease}
+.contact-link:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ===== Footer ===== */
+.footer{border-top:1px solid var(--border);padding:28px 0}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;
+  align-items:center;gap:16px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted)}
+
+@media (max-width:860px){
+  #cases-grid{grid-template-columns:1fr}
+  #approach-grid{grid-template-columns:1fr}
+  .job-head{gap:10px}
+  .edu{flex-direction:column;gap:4px}
+  .stack-group{grid-template-columns:1fr;gap:12px}
+  /* mobile nav: burger + slide-down dropdown */
+  .nav-burger{display:flex}
+  .nav-brand{margin-right:auto}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;margin-left:0;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);padding:6px 0}
+  .nav.open .nav-links{display:flex}
+  .nav-links a{padding:13px 24px;font-size:16px}
+  #lang-toggle{min-height:40px}
+  /* perf: drop GPU-heavy blur + continuous motion on phones */
+  #hero::before{animation:none;filter:none;opacity:.9}
+  .hero-eyebrow .dot{animation:none}
+  .chess-wrap{max-width:100%}
+  .chess-theme-chip{min-height:40px}
+  .console-open{min-height:40px}
+  .footer-inner{flex-wrap:wrap;gap:10px 16px}
+}
+
+/* ===== iPhone / small phones ===== */
+@media (max-width:480px){
+  .container{padding:0 18px}
+  .nav-loc{display:none}
+  section{padding-block:60px}
+  .section-head{margin-bottom:32px}
+  #hero{padding-top:88px}
+  #hero h1{font-size:clamp(28px,8.5vw,40px)}
+  .hero-sub{margin-top:18px}
+  .hero-ctas{margin-top:28px}
+  .hero-proof{margin-top:36px;padding-top:22px;gap:14px}
+  .proof-item{padding-right:18px;margin-right:18px}
+  .case-card{padding:20px}
+  .chess-bar{gap:10px}
+  .chess-theme-chip{font-size:12px;padding:8px 12px}      /* крупнее тач-цель */
+  #chess-new,#chess-reset{min-height:44px}
+  .console-panel{max-height:55vh}
+}
+
+/* ===== Chess ===== */
+#chess{background:var(--bg-alt);border-block:1px solid var(--border)}
+.chess-wrap{max-width:520px}
+.chess-board{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);aspect-ratio:1;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;position:relative;touch-action:manipulation}
+.chess-sq{position:relative;display:flex;align-items:center;justify-content:center;line-height:1;cursor:pointer;user-select:none}
+.chess-sq img.piece{width:86%;height:86%;pointer-events:none;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 1px 1px rgba(38,32,27,.18))}
+/* themes */
+.theme-paper .chess-sq.light{background:#F4EEE6}.theme-paper .chess-sq.dark{background:#E0CDBA}
+.theme-classic .chess-sq.light{background:#EDE6D4}.theme-classic .chess-sq.dark{background:#6E8B6E}
+.theme-midnight .chess-sq.light{background:#3C362E}.theme-midnight .chess-sq.dark{background:#2A2620}
+.theme-midnight .chess-sq{color:#F4EEE6}
+.chess-sq.sel{outline:3px solid var(--accent);outline-offset:-3px}
+.chess-sq.target::after{content:"";position:absolute;width:26%;height:26%;border-radius:50%;background:var(--accent);opacity:.55}
+.chess-sq.lastmove{box-shadow:inset 0 0 0 3px rgba(217,102,63,.35)}
+.chess-sq.check{animation:checkpulse 1s ease infinite}
+@keyframes checkpulse{0%,100%{box-shadow:inset 0 0 0 3px rgba(217,102,63,.2)}50%{box-shadow:inset 0 0 0 3px rgba(217,102,63,.8)}}
+.chess-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+.chess-themes{display:flex;gap:6px}
+.chess-theme-chip{font-family:var(--font-mono);font-size:11px;padding:4px 9px;border:1px solid var(--border);border-radius:999px;background:var(--surface);cursor:pointer}
+.chess-theme-chip.active{border-color:var(--accent);color:var(--accent)}
+.chess-status{margin-top:12px;font-family:var(--font-mono);font-size:13px;color:var(--ink-2);min-height:1.4em}
+.chess-actions{margin-top:16px;display:flex;gap:14px;align-items:center}
+.visitors-badge{font-family:var(--font-mono);font-size:12.5px;color:var(--muted)}
+
+/* ===== Mini-console ===== */
+.console-open{font-family:var(--font-mono);font-size:13px;border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;color:var(--ink)}
+.console-open:hover{border-color:var(--accent);color:var(--accent)}
+.console-panel{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#221C17;color:#FBF7F2;font-family:var(--font-mono);font-size:13px;max-height:46vh;display:flex;flex-direction:column;border-top:2px solid var(--accent);padding-bottom:env(safe-area-inset-bottom)}
+.console-panel[hidden]{display:none}
+.console-out{padding:14px;overflow:auto;white-space:pre-wrap;flex:1}
+.console-out>div{margin:2px 0}
+.console-inputline{display:flex;gap:8px;padding:10px 14px;border-top:1px solid rgba(255,255,255,.12);align-items:center}
+.console-inputline span{color:var(--accent)}
+.console-inputline input{flex:1;background:transparent;border:0;color:inherit;font-family:inherit;font-size:16px;outline:none}
+
+/* ===== Hidden chess theme (Konami / console) ===== */
+.theme-terracotta .chess-sq.light{background:#F0C9B8}
+.theme-terracotta .chess-sq.dark{background:#D9663F}
+
+/* ===== Easter-egg effects ===== */
+.egg-hotspot{position:absolute;top:88px;right:24px;width:150px;height:150px;z-index:2}
+.egg-star{position:fixed;left:-8vw;width:130px;height:2px;z-index:80;pointer-events:none;background:linear-gradient(90deg,transparent,var(--accent));border-radius:2px;box-shadow:0 0 7px var(--accent);animation:eggstar 1.2s linear forwards}
+.egg-star::after{content:"✦";position:absolute;right:-4px;top:-9px;color:var(--accent);font-size:14px}
+@keyframes eggstar{from{transform:translate(0,0);opacity:0}10%{opacity:1}to{transform:translate(120vw,28vh);opacity:0}}
+.egg-confetti{position:fixed;top:-6vh;z-index:80;pointer-events:none;font-size:18px;animation:eggfall 2.6s linear forwards}
+@keyframes eggfall{to{transform:translateY(112vh) rotate(360deg);opacity:.15}}
+.egg-sparkle{position:fixed;z-index:80;pointer-events:none;font-size:14px;color:var(--accent);animation:eggspark .85s ease-out forwards}
+@keyframes eggspark{to{transform:translate(var(--dx),var(--dy));opacity:0}}
+@media (prefers-reduced-motion: reduce){.egg-star,.egg-confetti,.egg-sparkle{display:none}}
+
+/* ===== Konami easter-egg rain ===== */
+.egg-rain::after{content:"♟ ♞ ♝ ♜ ♛ ♚";position:fixed;inset:0;pointer-events:none;z-index:70;font-size:30px;color:rgba(217,102,63,.5);letter-spacing:38px;line-height:64px;text-align:center;animation:eggrain 2.5s linear forwards}
+@keyframes eggrain{from{transform:translateY(-100%)}to{transform:translateY(110%)}}
+@media (prefers-reduced-motion: reduce){.egg-rain::after{display:none}}
+@media (prefers-reduced-motion: reduce){.chess-sq.check{animation:none}}
+
+</style>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iI0Q5NjYzRiIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiCiAgICAgICAgZm9udC1mYW1pbHk9IidNYW5yb3BlJywnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNGQkY3RjIiPtCU0Jw8L3RleHQ+Cjwvc3ZnPgo=">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#hero">Даниил Меладзе</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#cases" data-i18n="nav.cases"></a>
+        <a href="#approach" data-i18n="nav.approach"></a>
+        <a href="#experience" data-i18n="nav.experience"></a>
+        <a href="#stack" data-i18n="nav.stack"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+      </nav>
+      <span class="nav-loc" data-i18n="nav.location"></span>
+      <button id="lang-toggle" type="button" aria-label="Switch language" data-i18n-aria="lang.toggle_label">EN</button>
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <main>
+    <section id="hero" class="reveal">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow"></span></div>
+            <h1 data-i18n-html="hero.title"></h1>
+            <p class="hero-sub" data-i18n="hero.subtitle"></p>
+            <div class="hero-ctas">
+              <a class="btn-primary" href="#contact" data-i18n="hero.cta_primary"></a>
+              <a class="btn-secondary" href="#cases" data-i18n="hero.cta_secondary"></a>
+            </div>
+            <div class="hero-proof" id="hero-proof"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" data-i18n="cases.label"></div>
+          <h2 data-i18n="cases.title"></h2>
+          <p class="section-hint" data-i18n="cases.hint"></p>
+        </div>
+        <div id="cases-grid"></div>
+      </div>
+    </section>
+
+    <section id="approach" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" data-i18n="approach.label"></div>
+          <h2 data-i18n="approach.title"></h2>
+        </div>
+        <div id="approach-grid"></div>
+      </div>
+    </section>
+    <section id="experience" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" data-i18n="experience.label"></div>
+          <h2 data-i18n="experience.title"></h2>
+        </div>
+        <div id="experience-list"></div>
+      </div>
+    </section>
+
+    <section id="stack" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" data-i18n="stack.label"></div>
+          <h2 data-i18n="stack.title"></h2>
+        </div>
+        <div id="education-list"></div>
+        <div id="stack-groups"></div>
+      </div>
+    </section>
+    <section id="chess" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" data-i18n="chess.label"></div>
+          <h2 data-i18n="chess.title"></h2>
+          <p class="hero-sub" data-i18n="chess.intro"></p>
+        </div>
+        <div class="chess-wrap">
+          <div class="chess-bar">
+            <div class="chess-score" id="chess-score"></div>
+            <div class="chess-themes" id="chess-themes"></div>
+          </div>
+          <div class="chess-board theme-paper" id="chess-board" aria-label="Chess board"></div>
+          <div class="chess-status" id="chess-status"></div>
+          <div class="chess-actions">
+            <button class="btn-secondary" id="chess-new" data-i18n="chess.new_game"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="container contact-inner">
+        <div class="label" data-i18n="contact.label"></div>
+        <h2 data-i18n="contact.title"></h2>
+        <p data-i18n="contact.text"></p>
+        <div class="contact-links">
+          <a class="btn-primary" data-i18n-href="contact.bot_url" data-i18n="contact.bot_cta" target="_blank" rel="noopener"></a>
+          <a class="contact-link" data-i18n-href="contact.linkedin_url" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span data-i18n="footer.note"></span>
+      <span class="visitors-badge" id="visitors" hidden></span>
+      <span>© <span id="year"></span> Даниил Меладзе</span>
+      <button class="console-open" id="console-open" type="button" aria-label="Open console" data-i18n-aria="console.open_label">›_</button>
+    </div>
+  </footer>
+  <div class="console-panel" id="console-panel" hidden>
+    <div class="console-out" id="console-out"></div>
+    <div class="console-inputline"><span>&gt;</span><input id="console-in" autocomplete="off" autocapitalize="off" spellcheck="false" data-i18n-ph="console.placeholder"></div>
+  </div>
+  <script>window.CONTENT = {
+  ru: {
+    "nav.cases": "Проекты",
+    "nav.approach": "Подход",
+    "nav.experience": "Опыт",
+    "nav.stack": "Навыки",
+    "nav.contact": "Контакты",
+    "nav.location": "Москва · UTC+3",
+
+    "hero.eyebrow": "AI Product Manager",
+    "hero.title": "Превращаю бизнес-задачи в AI-продукты, которые <span class=\"hl\">работают</span>",
+    "hero.subtitle": "Product-менеджер с инженерным бэкграундом. Отвечаю за AI-продукты от бизнес-гипотезы и юнит-экономики до запуска.",
+    "hero.cta_primary": "Связаться",
+    "hero.cta_secondary": "Мои проекты",
+    "hero.proof": [
+      { "value": "AWS", "label": "ML Engineer · Associate" },
+      { "value": "NVIDIA", "label": "GenAI with LLMs · Associate" },
+      { "value": "Databricks", "label": "GenAI Engineer · Associate" }
+    ],
+
+    "cases.label": "Проекты",
+    "cases.title": "Мои достижения",
+    "cases.hint": "Наведите или нажмите на карточку",
+    "cases.items": [
+      { "icon":"search","tag":"Executive search","title":"AI CRM для рекрутинга","essence":"Извлекает данные из интервью и ищет кандидатов по смыслу.","metric":"≈1,5–2 ч/день на аналитика (~$95K/год)","detail":"RAG + семантический поиск по данным кандидатов с защитой от галлюцинаций; высвободил время аналитиков и добавил ~4 FTE мощности без найма.","stack":["FastAPI","pgvector","RAG","React/TS"] },
+      { "icon":"phone","tag":"Финансы","title":"AI-анализ звонков продаж","essence":"Расшифровывает каждый звонок, находит возражения, обновляет CRM.","metric":"Охват контроля 5–10% → в несколько раз больше","detail":"STT с диаризацией + LLM-оценка на Kubernetes; вместо точечных проверок — стабильный проверяемый контроль качества.","stack":["STT+диаризация","LLM","CRM","K8s"] },
+      { "icon":"mic","tag":"Промышленность · ERP","title":"Голосовое оформление счетов и актов","essence":"Документ собирается со слов сотрудника прямо на объекте.","metric":"Цикл документа 7 → 1–2 дня","detail":"Голосовой ввод + LLM генерирует счета/акты с интеграцией в ERP-систему; ошибок кратно меньше.","stack":["STT","LLM","ERP","Kubernetes"] },
+      { "icon":"card","tag":"Платежи","title":"Платёжный продукт для бизнеса","essence":"Владел B2B-платёжным продуктом end-to-end.","metric":"Выше success rate · быстрее расчёты · меньше замороженных средств","detail":"Отвечал за vision, P&L и юнит-экономику; маршрутизация и decisioning, сеттлмент и реконсиляция; автоматизация выплат сократила замороженные средства. Точные показатели — в резюме.","stack":["Product","P&L","routing","settlement"] },
+      { "icon":"clipboard","tag":"Консалтинг","title":"Платформа оценки оргразвития","essence":"Анонимные опросы и автоматические отчёты.","metric":"Опрос → анализ → отчёт в одном месте","detail":"Автоматизировал прохождение опросов компаниями с разбивкой по отделам — выше качество работы и полнота данных по каждой компании; единый анализ результатов по всем методологиям в одном месте и автогенерация нужных отчётов.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
+      { "icon":"bot","tag":"AI-автоматизация","title":"Агентная аналитика и отчётность","essence":"Агенты заменяют ручную аналитику и шлют утренний дайджест.","metric":"Ручная отчётность → автоматизирована","detail":"Сбор данных по расписанию, сводки аномалий, дайджест в Slack, с guardrails и human-in-the-loop.","stack":["LLM-агенты","оркестрация","Slack"] }
+    ],
+
+    "approach.label": "Подход",
+    "approach.title": "Как я работаю",
+    "approach.pillars": [
+      { "title": "Владею продуктом целиком", "text": "От бизнес-гипотезы и unit-экономики до запуска и метрик — отвечаю за результат, а не за отдельный этап." },
+      { "title": "Собираю и веду команду", "text": "Ставлю задачи разработке и аналитике, синхронизирую бизнес и инженеров, выстраиваю процессы и приоритеты." },
+      { "title": "Технически глубоко в продукте", "text": "Пишу и читаю код (Python, SQL, FastAPI, React) — сам собираю прототипы и говорю с инженерами на одном языке." }
+    ],
+
+    "experience.label": "Опыт",
+    "experience.title": "Опыт работы",
+    "experience.items": [
+      { "tag": "AI-продукты", "role": "AI Product Manager", "essence": "AI-продукты от гипотезы и метрик до архитектуры: executive search, анализ звонков, голосовой документооборот." },
+      { "tag": "Финтех", "role": "Product Manager", "essence": "Продуктовая стратегия, юнит-экономика и P&L в платёжном продукте для бизнеса." },
+      { "tag": "B2B", "role": "Key Account Manager", "essence": "Крупные клиенты из банков, энергетики и промышленности; рост повторных продаж." }
+    ],
+
+    "education.label": "Образование",
+    "education.title": "Образование",
+    "education.items": [
+      { "dept": "Инвестиции на финансовых рынках", "org": "НИУ ВШЭ", "level": "магистратура" },
+      { "dept": "Управление цепями поставок и бизнес-аналитика", "org": "НИУ ВШЭ", "level": "бакалавриат" },
+      { "dept": "International Business Management", "org": "GBC · Торонто", "level": "магистратура" }
+    ],
+
+    "stack.label": "Бэкграунд",
+    "stack.title": "Образование и навыки",
+    "stack.groups": [
+      { "name": "Продукт", "items": ["A/B-тесты","юнит-экономика","P&L / data-driven"] },
+      { "name": "AI / LLM", "items": ["Open Source LLM","RAG + pgvector","промпт-инжиниринг","контекст-инжиниринг","мультиагентные пайплайны"] },
+      { "name": "Данные и инжиниринг", "items": ["Python","SQL","системный дизайн","ETL / пайплайны данных","дашборды / BI"] },
+      { "name": "Языки", "items": ["Русский (родной)","Английский (IELTS 7.0)","Итальянский (B1)"] }
+    ],
+
+    "chess.label": "Шахматы",
+    "chess.title": "Сыграем партию?",
+    "chess.intro": "Соперник играет примерно на моём уровне. Вы — белыми.",
+    "chess.new_game": "Новая партия",
+    "chess.your_move": "Ваш ход",
+    "chess.thinking": "Думаю…",
+    "chess.check": "Шах",
+    "chess.win": "Мат — вы выиграли",
+    "chess.lose": "Мат — вы проиграли",
+    "chess.draw": "Ничья",
+    "chess.score": "Счёт",
+    "chess.wins": "Победы",
+    "chess.draws": "Ничьи",
+    "chess.losses": "Поражения",
+    "chess.theme_paper": "Бумага",
+    "chess.theme_classic": "Классика",
+    "chess.theme_midnight": "Полночь",
+
+    "contact.label": "Контакты",
+    "contact.title": "Свяжитесь со мной",
+    "contact.text": "Открыт к интересным проектам и предложениям — отвечаю в течение дня.",
+    "contact.bot_cta": "Написать в Telegram",
+    "contact.bot_url": "https://t.me/leadgenerator_AISbot",
+    "lang.toggle_label": "Сменить язык",
+    "contact.linkedin_url": "https://www.linkedin.com/in/meladzed/",
+
+    "footer.note": "Сделано в Москве",
+    "counter.visitors": "Гостей: {n}",
+
+    "console.open_label": "Открыть консоль",
+    "console.placeholder": "наберите help",
+    "console.unknown": "Команда не найдена. Наберите help",
+    "console.help": "Команды: help, play, theme, lang, contact, clear",
+    "console.themes_list": "Темы: бумага, классика, полночь",
+    "console.lang_usage": "Использование: lang ru|en (сейчас: {n})",
+    "console.egg_xyzzy": "Ничего не произошло… или всё-таки?",
+    "console.egg_1000": "Точно мой уровень 😉",
+    "console.egg_konami": "🏆 Разблокирована тема доски: Терракота"
+  },
+
+  en: {
+    "nav.cases": "Projects",
+    "nav.approach": "Approach",
+    "nav.experience": "Experience",
+    "nav.stack": "Skills",
+    "nav.contact": "Contact",
+    "nav.location": "Moscow · UTC+3",
+
+    "hero.eyebrow": "AI Product Manager",
+    "hero.title": "I turn business problems into AI products that actually <span class=\"hl\">work</span>",
+    "hero.subtitle": "Product manager with an engineering background. I own AI products from business hypothesis and unit economics to launch.",
+    "hero.cta_primary": "Get in touch",
+    "hero.cta_secondary": "View my work",
+    "hero.proof": [
+      { "value": "AWS", "label": "ML Engineer · Associate" },
+      { "value": "NVIDIA", "label": "GenAI with LLMs · Associate" },
+      { "value": "Databricks", "label": "GenAI Engineer · Associate" }
+    ],
+
+    "cases.label": "Projects",
+    "cases.title": "Selected work",
+    "cases.hint": "Hover or tap a card",
+    "cases.items": [
+      { "icon":"search","tag":"Executive search","title":"AI CRM for recruiting","essence":"Extracts interview data and finds candidates by meaning.","metric":"≈1.5–2 hrs/day per analyst (~$95K/yr)","detail":"RAG + semantic search over candidate data with hallucination guardrails; freed analyst time and added ~4 FTE of capacity without hiring.","stack":["FastAPI","pgvector","RAG","React/TS"] },
+      { "icon":"phone","tag":"Finance","title":"AI sales-call analysis","essence":"Transcribes every call, surfaces objections, updates the CRM.","metric":"QC coverage 5–10% → several-fold","detail":"Speech-to-text with diarization + LLM scoring on Kubernetes; turned spot-checks into consistent, auditable quality control.","stack":["STT+diarization","LLM","CRM","K8s"] },
+      { "icon":"mic","tag":"Industry · ERP","title":"Voice-driven invoicing & acts","essence":"The document is assembled from the worker's words on site.","metric":"Document cycle 7 → 1–2 days","detail":"Voice input + LLM generates invoices/acts with an ERP integration; far fewer errors.","stack":["STT","LLM","ERP","Kubernetes"] },
+      { "icon":"card","tag":"Payments","title":"Payments product for business","essence":"Owned a B2B payments product end-to-end.","metric":"Higher success rate · faster settlement · fewer frozen funds","detail":"Owned vision, P&L and unit economics; routing and decisioning, settlement and reconciliation; payout automation cut frozen funds. Detailed metrics available in my CV.","stack":["Product","P&L","routing","settlement"] },
+      { "icon":"clipboard","tag":"Consulting","title":"Org-health assessment platform","essence":"Anonymous surveys and automated reports.","metric":"Survey → analysis → report in one place","detail":"Automated survey completion for client companies with a per-department breakdown — improving work quality and data coverage for each company; unified analysis of results across all methodologies in one place, with automated generation of the required reports.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
+      { "icon":"bot","tag":"AI automation","title":"Agentic analytics & reporting","essence":"Agents replace manual analytics and post a morning digest.","metric":"Manual reporting → automated","detail":"Scheduled data pulls, anomaly summaries, a Slack digest, with guardrails and a human-in-the-loop check.","stack":["LLM agents","orchestration","Slack"] }
+    ],
+
+    "approach.label": "Approach",
+    "approach.title": "How I work",
+    "approach.pillars": [
+      { "title": "I own the whole product", "text": "From business hypothesis and unit economics to launch and metrics — I'm accountable for the outcome, not just one stage." },
+      { "title": "I build and lead the team", "text": "I set tasks for engineering and analytics, align business and engineers, and shape process and priorities." },
+      { "title": "Technically hands-on", "text": "I write and read code (Python, SQL, FastAPI, React) — I prototype myself and speak the engineers' language." }
+    ],
+
+    "experience.label": "Experience",
+    "experience.title": "Experience",
+    "experience.items": [
+      { "tag": "AI products", "role": "AI Product Manager", "essence": "AI products from hypothesis and metrics to architecture: executive search, call analysis, voice document flow." },
+      { "tag": "Fintech", "role": "Product Manager", "essence": "Product strategy, unit economics, and P&L in a B2B payments product." },
+      { "tag": "B2B", "role": "Key Account Manager", "essence": "Large clients across banking, energy, and industry; growth in repeat business." }
+    ],
+
+    "education.label": "Education",
+    "education.title": "Education",
+    "education.items": [
+      { "dept": "Investments in Financial Markets", "org": "HSE University", "level": "Master's" },
+      { "dept": "Supply Chain Management & Business Analytics", "org": "HSE University", "level": "Bachelor's" },
+      { "dept": "International Business Management", "org": "GBC · Toronto", "level": "Master's" }
+    ],
+
+    "stack.label": "Background",
+    "stack.title": "Education & skills",
+    "stack.groups": [
+      { "name": "Product", "items": ["A/B testing","unit economics","P&L / data-driven"] },
+      { "name": "AI / LLM", "items": ["Open Source LLM","RAG + pgvector","prompt engineering","context engineering","multi-agent pipelines"] },
+      { "name": "Data & engineering", "items": ["Python","SQL","system design","ETL / data pipelines","dashboards / BI"] },
+      { "name": "Languages", "items": ["Russian (native)","English (IELTS 7.0)","Italian (B1)"] }
+    ],
+
+    "chess.label": "Chess",
+    "chess.title": "Care for a game?",
+    "chess.intro": "The opponent plays roughly at my level. You play White.",
+    "chess.new_game": "New game",
+    "chess.your_move": "Your move",
+    "chess.thinking": "Thinking…",
+    "chess.check": "Check",
+    "chess.win": "Checkmate — you win",
+    "chess.lose": "Checkmate — you lose",
+    "chess.draw": "Draw",
+    "chess.score": "Score",
+    "chess.wins": "Wins",
+    "chess.draws": "Draws",
+    "chess.losses": "Losses",
+    "chess.theme_paper": "Paper",
+    "chess.theme_classic": "Classic",
+    "chess.theme_midnight": "Midnight",
+
+    "contact.label": "Contact",
+    "contact.title": "Get in touch",
+    "contact.text": "Open to interesting projects and offers — I reply within a day.",
+    "contact.bot_cta": "Message on Telegram",
+    "contact.bot_url": "https://t.me/leadgenerator_AISbot",
+    "lang.toggle_label": "Switch language",
+    "contact.linkedin_url": "https://www.linkedin.com/in/meladzed/",
+
+    "footer.note": "Built in Moscow",
+    "counter.visitors": "{n} visitors",
+
+    "console.open_label": "Open console",
+    "console.placeholder": "type help",
+    "console.unknown": "Unknown command. Type help",
+    "console.help": "Commands: help, play, theme, lang, contact, clear",
+    "console.themes_list": "Themes: paper, classic, midnight",
+    "console.lang_usage": "Usage: lang ru|en (now: {n})",
+    "console.egg_xyzzy": "Nothing happens… or does it?",
+    "console.egg_1000": "Exactly my level 😉",
+    "console.egg_konami": "🏆 Board theme unlocked: Terracotta"
+  }
+};
+</script>
+  <script>(function () {
+  const KEY = 'lang';
+  const supported = ['ru', 'en'];
+  const saved = localStorage.getItem(KEY);
+  const navLang = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
+  let lang = saved || (navLang.startsWith('ru') ? 'ru' : 'en');
+  if (!supported.includes(lang)) lang = 'en';
+
+  function t(key) {
+    const dict = window.CONTENT[lang] || {};
+    return key in dict ? dict[key] : (window.CONTENT.ru[key] ?? key);
+  }
+
+  // Рендереры списков заполняются визуальными тасками (4–11).
+  // Каждый регистрируется здесь и вызывается при смене языка.
+  const renderers = [];
+  window.registerRenderer = (fn) => renderers.push(fn);
+  window.t = t;
+
+  function applyLang() {
+    document.documentElement.lang = lang;
+    // простые строки
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    // авторский HTML (только из словаря, без пользовательского ввода)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    // атрибуты href
+    document.querySelectorAll('[data-i18n-href]').forEach(el => {
+      el.setAttribute('href', t(el.getAttribute('data-i18n-href')));
+    });
+    // aria-label
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+    // placeholder
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph')));
+    });
+    // динамические секции
+    renderers.forEach(fn => fn(t, lang));
+    // состояние кнопки-тоггла
+    const btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    document.title = lang === 'ru' ? 'Даниил Меладзе — AI Product Manager' : 'Daniil Meladze — AI Product Manager';
+  }
+  window.applyLang = applyLang;
+
+  function setLang(next) {
+    lang = supported.includes(next) ? next : 'ru';
+    localStorage.setItem(KEY, lang);
+    applyLang();
+  }
+  window.setLang = setLang;
+
+  function initReveal() {
+    const reveals = Array.from(document.querySelectorAll('.reveal'));
+    const showAll = () => reveals.forEach(e => e.classList.add('in'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { showAll(); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(e => io.observe(e));
+    // Reveal above-the-fold immediately (synchronous — does not depend on the
+    // observer's initial callback or rAF, which throttle in background tabs).
+    reveals.forEach(e => {
+      if (e.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        e.classList.add('in');
+        io.unobserve(e);
+      }
+    });
+    // Safety net: never leave content hidden if the observer never fires.
+    setTimeout(showAll, 1500);
+  }
+
+  // ===== Section renderers (data from CONTENT dictionary only) =====
+  window.registerRenderer((tt, lng) => {
+    const wrap = document.getElementById('hero-proof');
+    if (!wrap) return;
+    wrap.innerHTML = (window.CONTENT[lng]['hero.proof'] || [])
+      .map(p => `<div class="proof-item"><div class="proof-value">${p.value}</div><div class="proof-label">${p.label}</div></div>`).join('');
+  });
+
+  const CASE_ICONS = {
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+    clipboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>',
+    mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
+    bot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>',
+    card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
+    ml: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3.5-3.5 3 3L21 7"/></svg>'
+  };
+
+  function toggleCase(card) {
+    const open = card.classList.toggle('open');
+    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  window.registerRenderer((tt, lng) => {
+    const grid = document.getElementById('cases-grid');
+    if (!grid) return;
+    grid.innerHTML = (window.CONTENT[lng]['cases.items'] || []).map(c => `
+      <article class="case-card" role="button" tabindex="0" aria-expanded="false">
+        <div class="case-head"><span class="case-icon" aria-hidden="true">${CASE_ICONS[c.icon] || ''}</span><span class="case-tag">${c.tag}</span></div>
+        <h3 class="case-title">${c.title}</h3>
+        <div class="case-stack">${c.stack.map(s => `<span class="chip">${s}</span>`).join('')}</div>
+        <p class="case-essence">${c.essence}</p>
+        <div class="case-metric">${c.metric || ''}</div>
+        <p class="case-detail">${c.detail || ''}</p>
+      </article>`).join('');
+    grid.onclick = (e) => { const card = e.target.closest('.case-card'); if (card) toggleCase(card); };
+    grid.onkeydown = (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.case-card'); if (!card) return;
+      e.preventDefault(); toggleCase(card);
+    };
+  });
+
+  window.registerRenderer((tt, lng) => {
+    const g = document.getElementById('approach-grid');
+    if (!g) return;
+    g.innerHTML = (window.CONTENT[lng]['approach.pillars'] || [])
+      .map((p, i) => `<div class="pillar"><div class="pillar-num">0${i + 1}</div><h3>${p.title}</h3><p>${p.text}</p></div>`).join('');
+  });
+
+  window.registerRenderer((tt, lng) => {
+    const el = document.getElementById('experience-list');
+    if (!el) return;
+    el.innerHTML = (window.CONTENT[lng]['experience.items'] || []).map(j => `
+      <div class="job">
+        <div class="job-head"><span class="job-tag">${j.tag}</span><h3>${j.role}</h3></div>
+        <p class="job-essence">${j.essence}</p>
+      </div>`).join('');
+  });
+
+  window.registerRenderer((tt, lng) => {
+    const el = document.getElementById('education-list');
+    if (!el) return;
+    el.innerHTML = (window.CONTENT[lng]['education.items'] || []).map(e => {
+      const sub = [e.org, e.level].filter(Boolean).join(' · ');
+      return `<div class="edu"><div><h3>${e.dept}</h3><div class="edu-org">${sub}</div></div></div>`;
+    }).join('');
+  });
+
+  window.registerRenderer((tt, lng) => {
+    const el = document.getElementById('stack-groups');
+    if (!el) return;
+    el.innerHTML = (window.CONTENT[lng]['stack.groups'] || []).map(g => `
+      <div class="stack-group"><div class="stack-name">${g.name}</div>
+        <div class="chips">${g.items.map(i => `<span class="chip">${i}</span>`).join('')}</div></div>`).join('');
+  });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'lang-toggle') setLang(lang === 'ru' ? 'en' : 'ru');
+    });
+    applyLang();
+    initReveal();
+    const nav = document.querySelector('.nav');
+    const burger = document.getElementById('nav-burger');
+    if (nav && burger) {
+      const closeMenu = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); };
+      burger.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  });
+})();
+</script>
+  <script>var Chess=function(r){var u="b",s="w",l=-1,_="p",A="n",S="b",m="r",y="q",p="k",t="pnbrqkPNBRQK",e="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",g=["1-0","0-1","1/2-1/2","*"],C={b:[16,32,17,15],w:[-16,-32,-17,-15]},T={n:[-18,-33,-31,-14,18,33,31,14],b:[-17,-15,17,15],r:[-16,1,16,-1],q:[-17,-16,-15,1,17,16,15,-1],k:[-17,-16,-15,1,17,16,15,-1]},c=[20,0,0,0,0,0,0,24,0,0,0,0,0,0,20,0,0,20,0,0,0,0,0,24,0,0,0,0,0,20,0,0,0,0,20,0,0,0,0,24,0,0,0,0,20,0,0,0,0,0,0,20,0,0,0,24,0,0,0,20,0,0,0,0,0,0,0,0,20,0,0,24,0,0,20,0,0,0,0,0,0,0,0,0,0,20,2,24,2,20,0,0,0,0,0,0,0,0,0,0,0,2,53,56,53,2,0,0,0,0,0,0,24,24,24,24,24,24,56,0,56,24,24,24,24,24,24,0,0,0,0,0,0,2,53,56,53,2,0,0,0,0,0,0,0,0,0,0,0,20,2,24,2,20,0,0,0,0,0,0,0,0,0,0,20,0,0,24,0,0,20,0,0,0,0,0,0,0,0,20,0,0,0,24,0,0,0,20,0,0,0,0,0,0,20,0,0,0,0,24,0,0,0,0,20,0,0,0,0,20,0,0,0,0,0,24,0,0,0,0,0,20,0,0,20,0,0,0,0,0,0,24,0,0,0,0,0,0,20],v=[17,0,0,0,0,0,0,16,0,0,0,0,0,0,15,0,0,17,0,0,0,0,0,16,0,0,0,0,0,15,0,0,0,0,17,0,0,0,0,16,0,0,0,0,15,0,0,0,0,0,0,17,0,0,0,16,0,0,0,15,0,0,0,0,0,0,0,0,17,0,0,16,0,0,15,0,0,0,0,0,0,0,0,0,0,17,0,16,0,15,0,0,0,0,0,0,0,0,0,0,0,0,17,16,15,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-15,-16,-17,0,0,0,0,0,0,0,0,0,0,0,0,-15,0,-16,0,-17,0,0,0,0,0,0,0,0,0,0,-15,0,0,-16,0,0,-17,0,0,0,0,0,0,0,0,-15,0,0,0,-16,0,0,0,-17,0,0,0,0,0,0,-15,0,0,0,0,-16,0,0,0,0,-17,0,0,0,0,-15,0,0,0,0,0,-16,0,0,0,0,0,-17,0,0,-15,0,0,0,0,0,0,-16,0,0,0,0,0,0,-17],h={p:0,n:1,b:2,r:3,q:4,k:5},o={NORMAL:"n",CAPTURE:"c",BIG_PAWN:"b",EP_CAPTURE:"e",PROMOTION:"p",KSIDE_CASTLE:"k",QSIDE_CASTLE:"q"},I={NORMAL:1,CAPTURE:2,BIG_PAWN:4,EP_CAPTURE:8,PROMOTION:16,KSIDE_CASTLE:32,QSIDE_CASTLE:64},P=7,w=6,L=1,R=0,N={a8:0,b8:1,c8:2,d8:3,e8:4,f8:5,g8:6,h8:7,a7:16,b7:17,c7:18,d7:19,e7:20,f7:21,g7:22,h7:23,a6:32,b6:33,c6:34,d6:35,e6:36,f6:37,g6:38,h6:39,a5:48,b5:49,c5:50,d5:51,e5:52,f5:53,g5:54,h5:55,a4:64,b4:65,c4:66,d4:67,e4:68,f4:69,g4:70,h4:71,a3:80,b3:81,c3:82,d3:83,e3:84,f3:85,g3:86,h3:87,a2:96,b2:97,c2:98,d2:99,e2:100,f2:101,g2:102,h2:103,a1:112,b1:113,c1:114,d1:115,e1:116,f1:117,g1:118,h1:119},E={w:[{square:N.a1,flag:I.QSIDE_CASTLE},{square:N.h1,flag:I.KSIDE_CASTLE}],b:[{square:N.a8,flag:I.QSIDE_CASTLE},{square:N.h8,flag:I.KSIDE_CASTLE}]},O=new Array(128),k={w:l,b:l},q=s,D={w:0,b:0},K=l,d=0,b=1,Q=[],U={};function x(r){void 0===r&&(r=!1),O=new Array(128),k={w:l,b:l},q=s,D={w:0,b:0},K=l,d=0,b=1,Q=[],r||(U={}),F(M())}function j(){B(e)}function B(r,e){void 0===e&&(e=!1);var n=r.split(/\s+/),t=n[0],o=0;if(!$(r).valid)return!1;x(e);for(var i=0;i<t.length;i++){var f=t.charAt(i);if("/"===f)o+=8;else if(-1!=="0123456789".indexOf(f))o+=parseInt(f,10);else{var a=f<"a"?s:u;W({type:f.toLowerCase(),color:a},fr(o)),o++}}return q=n[1],-1<n[2].indexOf("K")&&(D.w|=I.KSIDE_CASTLE),-1<n[2].indexOf("Q")&&(D.w|=I.QSIDE_CASTLE),-1<n[2].indexOf("k")&&(D.b|=I.KSIDE_CASTLE),-1<n[2].indexOf("q")&&(D.b|=I.QSIDE_CASTLE),K="-"===n[3]?l:N[n[3]],d=parseInt(n[4],10),b=parseInt(n[5],10),F(M()),!0}function $(r){var e="No errors.",n="FEN string must contain six space-delimited fields.",t="6th field (move number) must be a positive integer.",o="5th field (half move counter) must be a non-negative integer.",i="4th field (en-passant square) is invalid.",f="3rd field (castling availability) is invalid.",a="2nd field (side to move) is invalid.",l="1st field (piece positions) does not contain 8 '/'-delimited rows.",u="1st field (piece positions) is invalid [consecutive numbers].",s="1st field (piece positions) is invalid [invalid piece].",p="1st field (piece positions) is invalid [row too large].",c="Illegal en-passant square",v=r.split(/\s+/);if(6!==v.length)return{valid:!1,error_number:1,error:n};if(isNaN(v[5])||parseInt(v[5],10)<=0)return{valid:!1,error_number:2,error:t};if(isNaN(v[4])||parseInt(v[4],10)<0)return{valid:!1,error_number:3,error:o};if(!/^(-|[abcdefgh][36])$/.test(v[3]))return{valid:!1,error_number:4,error:i};if(!/^(KQ?k?q?|Qk?q?|kq?|q|-)$/.test(v[2]))return{valid:!1,error_number:5,error:f};if(!/^(w|b)$/.test(v[1]))return{valid:!1,error_number:6,error:a};var g=v[0].split("/");if(8!==g.length)return{valid:!1,error_number:7,error:l};for(var h=0;h<g.length;h++){for(var E=0,d=!1,b=0;b<g[h].length;b++)if(isNaN(g[h][b])){if(!/^[prnbqkPRNBQK]$/.test(g[h][b]))return{valid:!1,error_number:9,error:s};E+=1,d=!1}else{if(d)return{valid:!1,error_number:8,error:u};E+=parseInt(g[h][b],10),d=!0}if(8!==E)return{valid:!1,error_number:10,error:p}}return"3"==v[3][1]&&"w"==v[1]||"6"==v[3][1]&&"b"==v[1]?{valid:!1,error_number:11,error:c}:{valid:!0,error_number:0,error:e}}function M(){for(var r=0,e="",n=N.a8;n<=N.h1;n++){if(null==O[n])r++;else{0<r&&(e+=r,r=0);var t=O[n].color,o=O[n].type;e+=t===s?o.toUpperCase():o.toLowerCase()}n+1&136&&(0<r&&(e+=r),n!==N.h1&&(e+="/"),r=0,n+=8)}var i="";D[s]&I.KSIDE_CASTLE&&(i+="K"),D[s]&I.QSIDE_CASTLE&&(i+="Q"),D[u]&I.KSIDE_CASTLE&&(i+="k"),D[u]&I.QSIDE_CASTLE&&(i+="q"),i=i||"-";var f=K===l?"-":fr(K);return[e,q,i,f,d,b].join(" ")}function G(r){for(var e=0;e<r.length;e+=2)"string"==typeof r[e]&&"string"==typeof r[e+1]&&(U[r[e]]=r[e+1]);return U}function F(r){0<Q.length||(r!==e?(U.SetUp="1",U.FEN=r):(delete U.SetUp,delete U.FEN))}function i(r){var e=O[N[r]];return e?{type:e.type,color:e.color}:null}function W(r,e){if(!("type"in r&&"color"in r))return!1;if(-1===t.indexOf(r.type.toLowerCase()))return!1;if(!(e in N))return!1;var n=N[e];return(r.type!=p||k[r.color]==l||k[r.color]==n)&&(O[n]={type:r.type,color:r.color},r.type===p&&(k[r.color]=n),F(M()),!0)}function H(r,e,n,t,o){var i={color:q,from:e,to:n,flags:t,piece:r[e].type};return o&&(i.flags|=I.PROMOTION,i.promotion=o),r[n]?i.captured=r[n].type:t&I.EP_CAPTURE&&(i.captured=_),i}function Z(r){function e(r,e,n,t,o){if(r[n].type!==_||or(t)!==R&&or(t)!==P)e.push(H(r,n,t,o));else for(var i=[y,m,S,A],f=0,a=i.length;f<a;f++)e.push(H(r,n,t,o,i[f]))}var n=[],t=q,o=ar(t),i={b:L,w:w},f=N.a8,a=N.h1,l=!1,u=!(void 0!==r&&"legal"in r)||r.legal;if(void 0!==r&&"square"in r){if(!(r.square in N))return[];f=a=N[r.square],l=!0}for(var s=f;s<=a;s++)if(136&s)s+=7;else{var p=O[s];if(null!=p&&p.color===t)if(p.type===_){var c=s+C[t][0];if(null==O[c]){e(O,n,s,c,I.NORMAL);c=s+C[t][1];i[t]===or(s)&&null==O[c]&&e(O,n,s,c,I.BIG_PAWN)}for(v=2;v<4;v++){136&(c=s+C[t][v])||(null!=O[c]&&O[c].color===o?e(O,n,s,c,I.CAPTURE):c===K&&e(O,n,s,K,I.EP_CAPTURE))}}else for(var v=0,g=T[p.type].length;v<g;v++){var h=T[p.type][v];for(c=s;!(136&(c+=h));){if(null!=O[c]){if(O[c].color===t)break;e(O,n,s,c,I.CAPTURE);break}if(e(O,n,s,c,I.NORMAL),"n"===p.type||"k"===p.type)break}}}if(!l||a===k[t]){if(D[t]&I.KSIDE_CASTLE){var E=(d=k[t])+2;null!=O[d+1]||null!=O[E]||V(o,k[t])||V(o,d+1)||V(o,E)||e(O,n,k[t],E,I.KSIDE_CASTLE)}if(D[t]&I.QSIDE_CASTLE){var d;E=(d=k[t])-2;null!=O[d-1]||null!=O[d-2]||null!=O[d-3]||V(o,k[t])||V(o,d-1)||V(o,E)||e(O,n,k[t],E,I.QSIDE_CASTLE)}}if(!u)return n;var b=[];for(s=0,g=n.length;s<g;s++)er(n[s]),X(t)||b.push(n[s]),nr();return b}function z(r,e){var n="";if(r.flags&I.KSIDE_CASTLE)n="O-O";else if(r.flags&I.QSIDE_CASTLE)n="O-O-O";else{var t=function(r,e){for(var n=Z({legal:!e}),t=r.from,o=r.to,i=r.piece,f=0,a=0,l=0,u=0,s=n.length;u<s;u++){var p=n[u].from,c=n[u].to,v=n[u].piece;i===v&&t!==p&&o===c&&(f++,or(t)===or(p)&&a++,ir(t)===ir(p)&&l++)}if(0<f)return 0<a&&0<l?fr(t):0<l?fr(t).charAt(1):fr(t).charAt(0);return""}(r,e);r.piece!==_&&(n+=r.piece.toUpperCase()+t),r.flags&(I.CAPTURE|I.EP_CAPTURE)&&(r.piece===_&&(n+=fr(r.from)[0]),n+="x"),n+=fr(r.to),r.flags&I.PROMOTION&&(n+="="+r.promotion.toUpperCase())}return er(r),f()&&(a()?n+="#":n+="+"),nr(),n}function J(r){return r.replace(/=/,"").replace(/[+#]?[?!]*$/,"")}function V(r,e){for(var n=N.a8;n<=N.h1;n++)if(136&n)n+=7;else if(null!=O[n]&&O[n].color===r){var t=O[n],o=n-e,i=119+o;if(c[i]&1<<h[t.type]){if(t.type===_){if(0<o){if(t.color===s)return!0}else if(t.color===u)return!0;continue}if("n"===t.type||"k"===t.type)return!0;for(var f=v[i],a=n+f,l=!1;a!==e;){if(null!=O[a]){l=!0;break}a+=f}if(!l)return!0}}return!1}function X(r){return V(ar(r),k[r])}function f(){return X(q)}function a(){return f()&&0===Z().length}function n(){return!f()&&0===Z().length}function Y(){for(var r={},e=[],n=0,t=0,o=N.a8;o<=N.h1;o++)if(t=(t+1)%2,136&o)o+=7;else{var i=O[o];i&&(r[i.type]=i.type in r?r[i.type]+1:1,i.type===S&&e.push(t),n++)}if(2===n)return!0;if(3===n&&(1===r[S]||1===r[A]))return!0;if(n===r[S]+2){var f=0,a=e.length;for(o=0;o<a;o++)f+=e[o];if(0===f||f===a)return!0}return!1}function rr(){for(var r=[],e={},n=!1;;){var t=nr();if(!t)break;r.push(t)}for(;;){var o=M().split(" ").slice(0,4).join(" ");if(e[o]=o in e?e[o]+1:1,3<=e[o]&&(n=!0),!r.length)break;er(r.pop())}return n}function er(r){var e,n=q,t=ar(n);if(e=r,Q.push({move:e,kings:{b:k.b,w:k.w},turn:q,castling:{b:D.b,w:D.w},ep_square:K,half_moves:d,move_number:b}),O[r.to]=O[r.from],O[r.from]=null,r.flags&I.EP_CAPTURE&&(q===u?O[r.to-16]=null:O[r.to+16]=null),r.flags&I.PROMOTION&&(O[r.to]={type:r.promotion,color:n}),O[r.to].type===p){if(k[O[r.to].color]=r.to,r.flags&I.KSIDE_CASTLE){var o=r.to-1,i=r.to+1;O[o]=O[i],O[i]=null}else if(r.flags&I.QSIDE_CASTLE){o=r.to+1,i=r.to-2;O[o]=O[i],O[i]=null}D[n]=""}if(D[n])for(var f=0,a=E[n].length;f<a;f++)if(r.from===E[n][f].square&&D[n]&E[n][f].flag){D[n]^=E[n][f].flag;break}if(D[t])for(f=0,a=E[t].length;f<a;f++)if(r.to===E[t][f].square&&D[t]&E[t][f].flag){D[t]^=E[t][f].flag;break}K=r.flags&I.BIG_PAWN?"b"===q?r.to-16:r.to+16:l,r.piece===_||r.flags&(I.CAPTURE|I.EP_CAPTURE)?d=0:d++,q===u&&b++,q=ar(q)}function nr(){var r=Q.pop();if(null==r)return null;var e=r.move;k=r.kings,q=r.turn,D=r.castling,K=r.ep_square,d=r.half_moves,b=r.move_number;var n,t,o=q,i=ar(q);if(O[e.from]=O[e.to],O[e.from].type=e.piece,O[e.to]=null,e.flags&I.CAPTURE)O[e.to]={type:e.captured,color:i};else if(e.flags&I.EP_CAPTURE){var f;f=o===u?e.to-16:e.to+16,O[f]={type:_,color:i}}e.flags&(I.KSIDE_CASTLE|I.QSIDE_CASTLE)&&(e.flags&I.KSIDE_CASTLE?(n=e.to+1,t=e.to-1):e.flags&I.QSIDE_CASTLE&&(n=e.to-2,t=e.to+1),O[n]=O[t],O[t]=null);return e}function tr(r,e){var n=J(r);if(e){var t=n.match(/([pnbrqkPNBRQK])?([a-h][1-8])x?-?([a-h][1-8])([qrbnQRBN])?/);if(t)var o=t[1],i=t[2],f=t[3],a=t[4]}for(var l=Z(),u=0,s=l.length;u<s;u++){if(n===J(z(l[u]))||e&&n===J(z(l[u],!0)))return l[u];if(t&&(!o||o.toLowerCase()==l[u].piece)&&N[i]==l[u].from&&N[f]==l[u].to&&(!a||a.toLowerCase()==l[u].promotion))return l[u]}return null}function or(r){return r>>4}function ir(r){return 15&r}function fr(r){var e=ir(r),n=or(r);return"abcdefgh".substring(e,e+1)+"87654321".substring(n,n+1)}function ar(r){return r===s?u:s}function lr(r){var e=function r(e){var n=e instanceof Array?[]:{};for(var t in e)n[t]="object"==typeof t?r(e[t]):e[t];return n}(r);e.san=z(e,!1),e.to=fr(e.to),e.from=fr(e.from);var n="";for(var t in I)I[t]&e.flags&&(n+=o[t]);return e.flags=n,e}function ur(r){return r.replace(/^\s+|\s+$/g,"")}return B(void 0===r?e:r),{WHITE:s,BLACK:u,PAWN:_,KNIGHT:A,BISHOP:S,ROOK:m,QUEEN:y,KING:p,SQUARES:function(){for(var r=[],e=N.a8;e<=N.h1;e++)136&e?e+=7:r.push(fr(e));return r}(),FLAGS:o,load:function(r){return B(r)},reset:function(){return j()},moves:function(r){for(var e=Z(r),n=[],t=0,o=e.length;t<o;t++)void 0!==r&&"verbose"in r&&r.verbose?n.push(lr(e[t])):n.push(z(e[t],!1));return n},in_check:function(){return f()},in_checkmate:function(){return a()},in_stalemate:function(){return n()},in_draw:function(){return 100<=d||n()||Y()||rr()},insufficient_material:function(){return Y()},in_threefold_repetition:function(){return rr()},game_over:function(){return 100<=d||a()||n()||Y()||rr()},validate_fen:function(r){return $(r)},fen:function(){return M()},board:function(){for(var r=[],e=[],n=N.a8;n<=N.h1;n++)null==O[n]?e.push(null):e.push({type:O[n].type,color:O[n].color}),n+1&136&&(r.push(e),e=[],n+=8);return r},pgn:function(r){var e="object"==typeof r&&"string"==typeof r.newline_char?r.newline_char:"\n",n="object"==typeof r&&"number"==typeof r.max_width?r.max_width:0,t=[],o=!1;for(var i in U)t.push("["+i+' "'+U[i]+'"]'+e),o=!0;o&&Q.length&&t.push(e);for(var f=[];0<Q.length;)f.push(nr());for(var a=[],l="";0<f.length;){var u=f.pop();Q.length||"b"!==u.color?"w"===u.color&&(l.length&&a.push(l),l=b+"."):l=b+". ...",l=l+" "+z(u,!1),er(u)}if(l.length&&a.push(l),void 0!==U.Result&&a.push(U.Result),0===n)return t.join("")+a.join(" ");var s=0;for(i=0;i<a.length;i++)s+a[i].length>n&&0!==i?(" "===t[t.length-1]&&t.pop(),t.push(e),s=0):0!==i&&(t.push(" "),s++),t.push(a[i]),s+=a[i].length;return t.join("")},load_pgn:function(r,e){var n=void 0!==e&&"sloppy"in e&&e.sloppy;function l(r){return r.replace(/\\/g,"\\")}var t="object"==typeof e&&"string"==typeof e.newline_char?e.newline_char:"\r?\n",o=new RegExp("^(\\[((?:"+l(t)+")|.)*\\])(?:"+l(t)+"){2}"),i=o.test(r)?o.exec(r)[1]:"";j();var f=function(r,e){for(var n="object"==typeof e&&"string"==typeof e.newline_char?e.newline_char:"\r?\n",t={},o=r.split(new RegExp(l(n))),i="",f="",a=0;a<o.length;a++)i=o[a].replace(/^\[([A-Z][A-Za-z]*)\s.*\]$/,"$1"),f=o[a].replace(/^\[[A-Za-z]+\s"(.*)"\]$/,"$1"),0<ur(i).length&&(t[i]=f);return t}(i,e);for(var a in f)G([a,f[a]]);if("1"===f.SetUp&&!("FEN"in f&&B(f.FEN,!0)))return!1;var u=r.replace(i,"").replace(new RegExp(l(t),"g")," ");u=u.replace(/(\{[^}]+\})+?/g,"");for(var s=/(\([^\(\)]+\))+?/g;s.test(u);)u=u.replace(s,"");var p=ur(u=(u=(u=u.replace(/\d+\.(\.\.)?/g,"")).replace(/\.\.\./g,"")).replace(/\$\d+/g,"")).split(new RegExp(/\s+/));p=p.join(",").replace(/,,+/g,",").split(",");for(var c="",v=0;v<p.length-1;v++){if(null==(c=tr(p[v],n)))return!1;er(c)}if(c=p[p.length-1],-1<g.indexOf(c))!function(r){for(var e in r)return 1}(U)||void 0!==U.Result||G(["Result",c]);else{if(null==(c=tr(c,n)))return!1;er(c)}return!0},header:function(){return G(arguments)},ascii:function(){return function(){for(var r="   +------------------------+\n",e=N.a8;e<=N.h1;e++){if(0===ir(e)&&(r+=" "+"87654321"[or(e)]+" |"),null==O[e])r+=" . ";else{var n=O[e].type;r+=" "+(O[e].color===s?n.toUpperCase():n.toLowerCase())+" "}e+1&136&&(r+="|\n",e+=8)}return r+="   +------------------------+\n",r+="     a  b  c  d  e  f  g  h\n"}()},turn:function(){return q},move:function(r,e){var n=void 0!==e&&"sloppy"in e&&e.sloppy,t=null;if("string"==typeof r)t=tr(r,n);else if("object"==typeof r)for(var o=Z(),i=0,f=o.length;i<f;i++)if(!(r.from!==fr(o[i].from)||r.to!==fr(o[i].to)||"promotion"in o[i]&&r.promotion!==o[i].promotion)){t=o[i];break}if(!t)return null;var a=lr(t);return er(t),a},undo:function(){var r=nr();return r?lr(r):null},clear:function(){return x()},put:function(r,e){return W(r,e)},get:function(r){return i(r)},remove:function(r){return n=i(e=r),O[N[e]]=null,n&&n.type===p&&(k[n.color]=l),F(M()),n;var e,n},perft:function(r){return function r(e){for(var n=Z({legal:!1}),t=0,o=q,i=0,f=n.length;i<f;i++)er(n[i]),X(o)||(0<e-1?t+=r(e-1):t++),nr();return t}(r)},square_color:function(r){if(r in N){var e=N[r];return(or(e)+ir(e))%2==0?"light":"dark"}return null},history:function(r){for(var e=[],n=[],t=(void 0!==r&&"verbose"in r&&r.verbose);0<Q.length;)e.push(nr());for(;0<e.length;){var o=e.pop();t?n.push(lr(o)):n.push(z(o)),er(o)}return n}}};"undefined"!=typeof exports&&(exports.Chess=Chess),"undefined"!=typeof define&&define(function(){return Chess});</script>
+  <script>window.PIECE_SRC={"wK":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0yMi41IDExLjYzVjZNMjAgOGg1Ii8+PHBhdGggZmlsbD0iI2ZmZiIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0yMi41IDI1czQuNS03LjUgMy0xMC41YzAgMC0xLTIuNS0zLTIuNXMtMyAyLjUtMyAyLjVjLTEuNSAzIDMgMTAuNSAzIDEwLjUiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTEuNSAzN2M1LjUgMy41IDE1LjUgMy41IDIxIDB2LTdzOS00LjUgNi0xMC41Yy00LTYuNS0xMy41LTMuNS0xNiA0VjI3di0zLjVjLTMuNS03LjUtMTMtMTAuNS0xNi00LTMgNiA1IDEwIDUgMTB6Ii8+PHBhdGggZD0iTTExLjUgMzBjNS41LTMgMTUuNS0zIDIxIDBtLTIxIDMuNWM1LjUtMyAxNS41LTMgMjEgMG0tMjEgMy41YzUuNS0zIDE1LjUtMyAyMSAwIi8+PC9nPjwvc3ZnPg==","wQ":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIGQ9Ik04IDEyYTIgMiAwIDEgMS00IDAgMiAyIDAgMSAxIDQgMG0xNi41LTQuNWEyIDIgMCAxIDEtNCAwIDIgMiAwIDEgMSA0IDBNNDEgMTJhMiAyIDAgMSAxLTQgMCAyIDIgMCAxIDEgNCAwTTE2IDguNWEyIDIgMCAxIDEtNCAwIDIgMiAwIDEgMSA0IDBNMzMgOWEyIDIgMCAxIDEtNCAwIDIgMiAwIDEgMSA0IDAiLz48cGF0aCBzdHJva2UtbGluZWNhcD0iYnV0dCIgZD0iTTkgMjZjOC41LTEuNSAyMS0xLjUgMjcgMGwyLTEyLTcgMTFWMTFsLTUuNSAxMy41LTMtMTUtMyAxNS01LjUtMTRWMjVMNyAxNHoiLz48cGF0aCBzdHJva2UtbGluZWNhcD0iYnV0dCIgZD0iTTkgMjZjMCAyIDEuNSAyIDIuNSA0IDEgMS41IDEgMSAuNSAzLjUtMS41IDEtMS41IDIuNS0xLjUgMi41LTEuNSAxLjUuNSAyLjUuNSAyLjUgNi41IDEgMTYuNSAxIDIzIDAgMCAwIDEuNS0xIDAtMi41IDAgMCAuNS0xLjUtMS0yLjUtLjUtMi41LS41LTIgLjUtMy41IDEtMiAyLjUtMiAyLjUtNC04LjUtMS41LTE4LjUtMS41LTI3IDB6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTExLjUgMzBjMy41LTEgMTguNS0xIDIyIDBNMTIgMzMuNWM2LTEgMTUtMSAyMSAwIi8+PC9nPjwvc3ZnPg==","wR":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJidXR0IiBkPSJNOSAzOWgyN3YtM0g5em0zLTN2LTRoMjF2NHptLTEtMjJWOWg0djJoNVY5aDV2Mmg1VjloNHY1Ii8+PHBhdGggZD0ibTM0IDE0LTMgM0gxNGwtMy0zIi8+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0zMSAxN3YxMi41SDE0VjE3Ii8+PHBhdGggZD0ibTMxIDI5LjUgMS41IDIuNWgtMjBsMS41LTIuNSIvPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0xMSAxNGgyMyIvPjwvZz48L3N2Zz4=","wB":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxnIGZpbGw9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJidXR0Ij48cGF0aCBkPSJNOSAzNmMzLjM5LS45NyAxMC4xMS40MyAxMy41LTIgMy4zOSAyLjQzIDEwLjExIDEuMDMgMTMuNSAyIDAgMCAxLjY1LjU0IDMgMi0uNjguOTctMS42NS45OS0zIC41LTMuMzktLjk3LTEwLjExLjQ2LTEzLjUtMS0zLjM5IDEuNDYtMTAuMTEuMDMtMTMuNSAxLTEuMzUuNDktMi4zMi40Ny0zLS41IDEuMzUtMS45NCAzLTIgMy0yeiIvPjxwYXRoIGQ9Ik0xNSAzMmMyLjUgMi41IDEyLjUgMi41IDE1IDAgLjUtMS41IDAtMiAwLTIgMC0yLjUtMi41LTQtMi41LTQgNS41LTEuNSA2LTExLjUtNS0xNS41LTExIDQtMTAuNSAxNC01IDE1LjUgMCAwLTIuNSAxLjUtMi41IDQgMCAwLS41LjUgMCAyeiIvPjxwYXRoIGQ9Ik0yNSA4YTIuNSAyLjUgMCAxIDEtNSAwIDIuNSAyLjUgMCAxIDEgNSAweiIvPjwvZz48cGF0aCBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNMTcuNSAyNmgxME0xNSAzMGgxNW0tNy41LTE0LjV2NU0yMCAxOGg1Ii8+PC9nPjwvc3ZnPg==","wN":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yMiAxMGMxMC41IDEgMTYuNSA4IDE2IDI5SDE1YzAtOSAxMC02LjUgOC0yMSIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yNCAxOGMuMzggMi45MS01LjU1IDcuMzctOCA5LTMgMi0yLjgyIDQuMzQtNSA0LTEuMDQyLS45NCAxLjQxLTMuMDQgMC0zLTEgMCAuMTkgMS4yMy0xIDItMSAwLTQuMDAzIDEtNC00IDAtMiA2LTEyIDYtMTJzMS44OS0xLjkgMi0zLjVjLS43My0uOTk0LS41LTItLjUtMyAxLTEgMyAyLjUgMyAyLjVoMnMuNzgtMS45OTIgMi41LTNjMSAwIDEgMyAxIDMiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJNOS41IDI1LjVhLjUuNSAwIDEgMS0xIDAgLjUuNSAwIDEgMSAxIDBtNS40MzMtOS43NWEuNSAxLjUgMzAgMSAxLS44NjYtLjUuNSAxLjUgMzAgMSAxIC44NjYuNSIvPjwvZz48L3N2Zz4=","wP":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PHBhdGggZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNMjIuNSA5Yy0yLjIxIDAtNCAxLjc5LTQgNCAwIC44OS4yOSAxLjcxLjc4IDIuMzhDMTcuMzMgMTYuNSAxNiAxOC41OSAxNiAyMWMwIDIuMDMuOTQgMy44NCAyLjQxIDUuMDMtMyAxLjA2LTcuNDEgNS41NS03LjQxIDEzLjQ3aDIzYzAtNy45Mi00LjQxLTEyLjQxLTcuNDEtMTMuNDcgMS40Ny0xLjE5IDIuNDEtMyAyLjQxLTUuMDMgMC0yLjQxLTEuMzMtNC41LTMuMjgtNS42Mi40OS0uNjcuNzgtMS40OS43OC0yLjM4IDAtMi4yMS0xLjc5LTQtNC00eiIvPjwvc3ZnPg==","bK":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0yMi41IDExLjZWNiIvPjxwYXRoIGZpbGw9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNMjIuNSAyNXM0LjUtNy41IDMtMTAuNWMwIDAtMS0yLjUtMy0yLjVzLTMgMi41LTMgMi41Yy0xLjUgMyAzIDEwLjUgMyAxMC41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTExLjUgMzdhMjIuMyAyMi4zIDAgMCAwIDIxIDB2LTdzOS00LjUgNi0xMC41Yy00LTYuNS0xMy41LTMuNS0xNiA0VjI3di0zLjVjLTMuNS03LjUtMTMtMTAuNS0xNi00LTMgNiA1IDEwIDUgMTB6Ii8+PHBhdGggc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgZD0iTTIwIDhoNSIvPjxwYXRoIHN0cm9rZT0iI2VjZWNlYyIgZD0iTTMyIDI5LjVzOC41LTQgNi05LjdDMzQuMSAxNCAyNSAxOCAyMi41IDI0LjZ2Mi4xLTIuMUMyMCAxOCA5LjkgMTQgNyAxOS45Yy0yLjUgNS42IDQuOCA5IDQuOCA5Ii8+PHBhdGggc3Ryb2tlPSIjZWNlY2VjIiBkPSJNMTEuNSAzMGM1LjUtMyAxNS41LTMgMjEgMG0tMjEgMy41YzUuNS0zIDE1LjUtMyAyMSAwbS0yMSAzLjVjNS41LTMgMTUuNS0zIDIxIDAiLz48L2c+PC9zdmc+","bQ":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxnIHN0cm9rZT0ibm9uZSI+PGNpcmNsZSBjeD0iNiIgY3k9IjEyIiByPSIyLjc1Ii8+PGNpcmNsZSBjeD0iMTQiIGN5PSI5IiByPSIyLjc1Ii8+PGNpcmNsZSBjeD0iMjIuNSIgY3k9IjgiIHI9IjIuNzUiLz48Y2lyY2xlIGN4PSIzMSIgY3k9IjkiIHI9IjIuNzUiLz48Y2lyY2xlIGN4PSIzOSIgY3k9IjEyIiByPSIyLjc1Ii8+PC9nPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJidXR0IiBkPSJNOSAyNmM4LjUtMS41IDIxLTEuNSAyNyAwbDIuNS0xMi41TDMxIDI1bC0uMy0xNC4xLTUuMiAxMy42LTMtMTQuNS0zIDE0LjUtNS4yLTEzLjZMMTQgMjUgNi41IDEzLjV6Ii8+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIGQ9Ik05IDI2YzAgMiAxLjUgMiAyLjUgNCAxIDEuNSAxIDEgLjUgMy41LTEuNSAxLTEuNSAyLjUtMS41IDIuNS0xLjUgMS41LjUgMi41LjUgMi41IDYuNSAxIDE2LjUgMSAyMyAwIDAgMCAxLjUtMSAwLTIuNSAwIDAgLjUtMS41LTEtMi41LS41LTIuNS0uNS0yIC41LTMuNSAxLTIgMi41LTIgMi41LTQtOC41LTEuNS0xOC41LTEuNS0yNyAweiIvPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBkPSJNMTEgMzguNWEzNSAzNSAxIDAgMCAyMyAwIi8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWNlY2VjIiBkPSJNMTEgMjlhMzUgMzUgMSAwIDEgMjMgMG0tMjEuNSAyLjVoMjBtLTIxIDNhMzUgMzUgMSAwIDAgMjIgMG0tMjMgM2EzNSAzNSAxIDAgMCAyNCAwIi8+PC9nPjwvc3ZnPg==","bR":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJidXR0IiBkPSJNOSAzOWgyN3YtM0g5em0zLjUtNyAxLjUtMi41aDE3bDEuNSAyLjV6bS0uNSA0di00aDIxdjR6Ii8+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0xNCAyOS41di0xM2gxN3YxM3oiLz48cGF0aCBzdHJva2UtbGluZWNhcD0iYnV0dCIgZD0iTTE0IDE2LjUgMTEgMTRoMjNsLTMgMi41ek0xMSAxNFY5aDR2Mmg1VjloNXYyaDVWOWg0djV6Ii8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWNlY2VjIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2Utd2lkdGg9IjEiIGQ9Ik0xMiAzNS41aDIxbS0yMC00aDE5bS0xOC0yaDE3bS0xNy0xM2gxN00xMSAxNGgyMyIvPjwvZz48L3N2Zz4=","bB":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxnIGZpbGw9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJidXR0Ij48cGF0aCBkPSJNOSAzNmMzLjQtMSAxMC4xLjQgMTMuNS0yIDMuNCAyLjQgMTAuMSAxIDEzLjUgMiAwIDAgMS42LjUgMyAyLS43IDEtMS42IDEtMyAuNS0zLjQtMS0xMC4xLjUtMTMuNS0xLTMuNCAxLjUtMTAuMSAwLTEzLjUgMS0xLjQuNS0yLjMuNS0zLS41IDEuNC0yIDMtMiAzLTJ6Ii8+PHBhdGggZD0iTTE1IDMyYzIuNSAyLjUgMTIuNSAyLjUgMTUgMCAuNS0xLjUgMC0yIDAtMiAwLTIuNS0yLjUtNC0yLjUtNCA1LjUtMS41IDYtMTEuNS01LTE1LjUtMTEgNC0xMC41IDE0LTUgMTUuNSAwIDAtMi41IDEuNS0yLjUgNCAwIDAtLjUuNSAwIDJ6Ii8+PHBhdGggZD0iTTI1IDhhMi41IDIuNSAwIDEgMS01IDAgMi41IDIuNSAwIDEgMSA1IDB6Ii8+PC9nPjxwYXRoIHN0cm9rZT0iI2VjZWNlYyIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgZD0iTTE3LjUgMjZoMTBNMTUgMzBoMTVtLTcuNS0xNC41djVNMjAgMThoNSIvPjwvZz48L3N2Zz4=","bN":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0yMiAxMGMxMC41IDEgMTYuNSA4IDE2IDI5SDE1YzAtOSAxMC02LjUgOC0yMSIvPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0yNCAxOGMuMzggMi45MS01LjU1IDcuMzctOCA5LTMgMi0yLjgyIDQuMzQtNSA0LTEuMDQtLjk0IDEuNDEtMy4wNCAwLTMtMSAwIC4xOSAxLjIzLTEgMi0xIDAtNCAxLTQtNCAwLTIgNi0xMiA2LTEyczEuODktMS45IDItMy41Yy0uNzMtMS0uNS0yLS41LTMgMS0xIDMgMi41IDMgMi41aDJzLjc4LTIgMi41LTNjMSAwIDEgMyAxIDMiLz48cGF0aCBmaWxsPSIjZWNlY2VjIiBzdHJva2U9IiNlY2VjZWMiIGQ9Ik05LjUgMjUuNWEuNS41IDAgMSAxLTEgMCAuNS41IDAgMSAxIDEgMG01LjQzLTkuNzVhLjUgMS41IDMwIDEgMS0uODYtLjUuNSAxLjUgMzAgMSAxIC44Ni41Ii8+PHBhdGggZmlsbD0iI2VjZWNlYyIgc3Ryb2tlPSJub25lIiBkPSJtMjQuNTUgMTAuNC0uNDUgMS40NS41LjE1YzMuMTUgMSA1LjY1IDIuNDkgNy45IDYuNzVTMzUuNzUgMjkuMDYgMzUuMjUgMzlsLS4wNS41aDIuMjVsLjA1LS41Yy41LTEwLjA2LS44OC0xNi44NS0zLjI1LTIxLjM0cy01Ljc5LTYuNjQtOS4xOS03LjE2eiIvPjwvZz48L3N2Zz4=","bP":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NSA0NSI+PHBhdGggc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNMjIuNSA5YTQgNCAwIDAgMC0zLjIyIDYuMzggNi40OCA2LjQ4IDAgMCAwLS44NyAxMC42NWMtMyAxLjA2LTcuNDEgNS41NS03LjQxIDEzLjQ3aDIzYzAtNy45Mi00LjQxLTEyLjQxLTcuNDEtMTMuNDdhNi40NiA2LjQ2IDAgMCAwLS44Ny0xMC42NUE0LjAxIDQuMDEgMCAwIDAgMjIuNSA5eiIvPjwvc3ZnPg=="};</script>
+  <script>(function () {
+  if (typeof window.Chess !== 'function') { console.warn('chess.js not loaded'); return; }
+  const pieceCode = (p) => (p.color === 'w' ? 'w' : 'b') + p.type.toUpperCase(); // e.g. wK, bP → assets/pieces/<code>.svg
+  const FILES = ['a','b','c','d','e','f','g','h'];
+  let game, selected = null, lastMove = null, thinking = false, scored = false;
+  const boardEl = () => document.getElementById('chess-board');
+
+  function sqName(r, c) { return FILES[c] + (8 - r); } // r,c: 0..7 from top-left (rank8=row0)
+
+  function render() {
+    const el = boardEl(); if (!el) return;
+    const b = game.board(); // 8x8, [0]=rank8
+    el.innerHTML = '';
+    for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+      const sq = document.createElement('div');
+      sq.className = 'chess-sq ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+      sq.dataset.sq = sqName(r, c);
+      const p = b[r][c];
+      if (p) { const code = pieceCode(p); const img = document.createElement('img'); img.className = 'piece'; img.src = (window.PIECE_SRC && window.PIECE_SRC[code]) || ('assets/pieces/' + code + '.svg'); img.alt = ''; img.draggable = false; sq.appendChild(img); }
+      if (lastMove && (lastMove.from === sq.dataset.sq || lastMove.to === sq.dataset.sq)) sq.classList.add('lastmove');
+      sq.addEventListener('click', () => onSquare(sq.dataset.sq));
+      el.appendChild(sq);
+    }
+    if (game.in_check()) markCheck();
+  }
+
+  function markCheck() {
+    const turn = game.turn();
+    const b = game.board();
+    for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+      const p = b[r][c];
+      if (p && p.type === 'k' && p.color === turn) {
+        const node = boardEl().querySelector(`[data-sq="${sqName(r, c)}"]`);
+        if (node) node.classList.add('check');
+      }
+    }
+  }
+
+  function clearMarks() {
+    boardEl().querySelectorAll('.sel,.target').forEach(n => n.classList.remove('sel', 'target'));
+  }
+
+  function onSquare(name) {
+    if (thinking || game.game_over() || game.turn() !== 'w') return;
+    const piece = game.get(name);
+    if (selected && name !== selected) {
+      const move = game.moves({ square: selected, verbose: true }).find(m => m.to === name);
+      if (move) { doMove(move); return; }
+    }
+    clearMarks(); selected = null;
+    if (piece && piece.color === 'w') {
+      selected = name;
+      const node = boardEl().querySelector(`[data-sq="${name}"]`); if (node) node.classList.add('sel');
+      game.moves({ square: name, verbose: true }).forEach(m => {
+        const t = boardEl().querySelector(`[data-sq="${m.to}"]`); if (t) t.classList.add('target');
+      });
+    }
+  }
+
+  function doMove(move) {
+    const done = game.move({ from: move.from, to: move.to, promotion: 'q' });
+    lastMove = { from: move.from, to: move.to };
+    selected = null; render(); animateLast(done); updateStatus();
+    if (!game.game_over()) { thinking = true; updateStatus(); setTimeout(aiTurn, 350); }
+    else finishGame();
+  }
+
+  // ——— AI engine: ~1500 (negamax 3-ply + PST eval + small error factor) ———
+  const VAL = { p: 100, n: 320, b: 330, r: 500, q: 900, k: 0 };
+  const PST_P = [0,0,0,0,0,0,0,0, 50,50,50,50,50,50,50,50, 10,10,20,30,30,20,10,10,
+                 5,5,10,25,25,10,5,5, 0,0,0,20,20,0,0,0, 5,-5,-10,0,0,-10,-5,5,
+                 5,10,10,-20,-20,10,10,5, 0,0,0,0,0,0,0,0];
+  const PST_N = [-50,-40,-30,-30,-30,-30,-40,-50, -40,-20,0,0,0,0,-20,-40, -30,0,10,15,15,10,0,-30,
+                 -30,5,15,20,20,15,5,-30, -30,0,15,20,20,15,0,-30, -30,5,10,15,15,10,5,-30,
+                 -40,-20,0,5,5,0,-20,-40, -50,-40,-30,-30,-30,-30,-40,-50];
+  const PST_B = [-20,-10,-10,-10,-10,-10,-10,-20, -10,0,0,0,0,0,0,-10, -10,0,5,10,10,5,0,-10,
+                 -10,5,5,10,10,5,5,-10, -10,0,10,10,10,10,0,-10, -10,10,10,10,10,10,10,-10,
+                 -10,5,0,0,0,0,5,-10, -20,-10,-10,-10,-10,-10,-10,-20];
+  const PST_K = [-30,-40,-40,-50,-50,-40,-40,-30, -30,-40,-40,-50,-50,-40,-40,-30, -30,-40,-40,-50,-50,-40,-40,-30,
+                 -30,-40,-40,-50,-50,-40,-40,-30, -20,-30,-30,-40,-40,-30,-30,-20, -10,-20,-20,-20,-20,-20,-20,-10,
+                 20,20,0,0,0,0,20,20, 20,30,10,0,0,10,30,20];
+  const PST = { p: PST_P, n: PST_N, b: PST_B, k: PST_K };
+  function evaluate(g) {
+    let score = 0; const b = g.board();
+    for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+      const p = b[r][c]; if (!p) continue;
+      let v = VAL[p.type];
+      const t = PST[p.type];
+      if (t) v += (p.color === 'w' ? t[r * 8 + c] : t[(7 - r) * 8 + c]);
+      score += (p.color === 'w' ? v : -v);
+    }
+    return score; // + = выгода белым
+  }
+  // негамакс: оценка с точки зрения стороны, делающей ход в g
+  function negamax(g, depth, alpha, beta, deadline) {
+    if (depth === 0 || g.game_over() || performance.now() > deadline) {
+      const s = evaluate(g); return g.turn() === 'w' ? s : -s;
+    }
+    let best = -Infinity;
+    const ms = g.moves({ verbose: true });
+    ms.sort((a, b) => (b.captured ? 1 : 0) - (a.captured ? 1 : 0)); // captures first → better alpha-beta pruning
+    for (const m of ms) {
+      g.move(m); const val = -negamax(g, depth - 1, -beta, -alpha, deadline); g.undo();
+      if (val > best) best = val;
+      if (best > alpha) alpha = best;
+      if (alpha >= beta) break;
+    }
+    return best;
+  }
+  // выбор хода с «фактором ошибок» под клубный уровень
+  function chooseMove(g, errorProb) {
+    const moves = g.moves({ verbose: true });
+    if (!moves.length) return null;
+    const deadline = performance.now() + 600; // time budget — keeps the UI responsive
+    let best = moves.map(m => ({ m, v: 0 }));
+    for (let depth = 1; depth <= 3; depth++) {
+      const scored = []; let aborted = false;
+      for (const m of moves) {
+        if (performance.now() > deadline) { aborted = true; break; }
+        g.move(m); const v = -negamax(g, depth, -Infinity, Infinity, deadline); g.undo();
+        scored.push({ m, v });
+      }
+      if (aborted) break;          // out of time — keep the last fully-searched depth
+      scored.sort((a, b) => b.v - a.v);
+      best = scored;
+    }
+    if (Math.random() < errorProb) {
+      const pool = best.slice(0, Math.min(3, best.length));
+      return pool[Math.floor(Math.random() * pool.length)].m;
+    }
+    return best[0].m;
+  }
+  window.ChessAI = { evaluate, chooseMove };
+
+  function aiTurn() {
+    const m = chooseMove(game, 0.12); // ~1500: mostly best move, rare inaccuracy
+    let done = null;
+    if (m) { done = game.move({ from: m.from, to: m.to, promotion: 'q' }); lastMove = { from: m.from, to: m.to }; }
+    thinking = false; render(); animateLast(done); updateStatus();
+    if (game.game_over()) finishGame();
+  }
+
+  function updateStatus() {
+    const el = document.getElementById('chess-status'); if (!el) return;
+    const t = window.t || ((k) => k);
+    if (thinking) { el.textContent = t('chess.thinking'); return; }
+    if (game.in_checkmate()) { el.textContent = game.turn() === 'w' ? t('chess.lose') : t('chess.win'); return; }
+    if (game.in_draw() || game.in_stalemate()) { el.textContent = t('chess.draw'); return; }
+    el.textContent = game.in_check() ? t('chess.check') : t('chess.your_move');
+  }
+
+  // ——— FLIP-анимация переехавшей фигуры ———
+  function animateMove(from, to) {
+    if (!from || !to) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const fromCell = boardEl().querySelector(`[data-sq="${from}"]`);
+    const toCell = boardEl().querySelector(`[data-sq="${to}"]`);
+    const piece = toCell && toCell.querySelector('img.piece');
+    if (!fromCell || !toCell || !piece) return;
+    const fr = fromCell.getBoundingClientRect(), tr = toCell.getBoundingClientRect();
+    const dx = fr.left - tr.left, dy = fr.top - tr.top;
+    piece.style.transition = 'none';
+    piece.style.transform = `translate(${dx}px, ${dy}px)`;
+    requestAnimationFrame(() => {
+      piece.style.transition = 'transform .25s ease';
+      piece.style.transform = '';
+    });
+  }
+
+  // анимировать последний ход: король + ладья при рокировке
+  function animateLast(move) {
+    if (!move) { if (lastMove) animateMove(lastMove.from, lastMove.to); return; }
+    animateMove(move.from, move.to);
+    if (move.flags && (move.flags.indexOf('k') !== -1 || move.flags.indexOf('q') !== -1)) {
+      const rank = move.color === 'w' ? '1' : '8';
+      const rook = move.flags.indexOf('k') !== -1 ? { from: 'h' + rank, to: 'f' + rank } : { from: 'a' + rank, to: 'd' + rank };
+      animateMove(rook.from, rook.to);
+    }
+  }
+
+  // ——— Темы доски ———
+  const THEMES = ['paper', 'classic', 'midnight'];          // показываются чипами
+  const ALL_THEMES = ['paper', 'classic', 'midnight', 'terracotta']; // + скрытая (Konami / console)
+  function applyTheme(name) {
+    if (!ALL_THEMES.includes(name)) name = 'paper';
+    boardEl().className = 'chess-board theme-' + name;
+    try { localStorage.setItem('chess.theme', name); } catch (e) {}
+    document.querySelectorAll('.chess-theme-chip').forEach(ch => ch.classList.toggle('active', ch.dataset.theme === name));
+  }
+  function renderThemeChips() {
+    const wrap = document.getElementById('chess-themes'); if (!wrap) return;
+    const t = window.t || ((k) => k);
+    wrap.innerHTML = THEMES.map(n => `<button class="chess-theme-chip" data-theme="${n}">${t('chess.theme_' + n)}</button>`).join('');
+    wrap.querySelectorAll('.chess-theme-chip').forEach(ch => ch.addEventListener('click', () => applyTheme(ch.dataset.theme)));
+    let saved = 'paper'; try { saved = localStorage.getItem('chess.theme') || 'paper'; } catch (e) {}
+    applyTheme(saved);
+  }
+
+  // ——— Счёт по партиям ———
+  function loadScore() { try { return JSON.parse(localStorage.getItem('chess.score')) || { w: 0, d: 0, l: 0 }; } catch (e) { return { w: 0, d: 0, l: 0 }; } }
+  function saveScore(s) { try { localStorage.setItem('chess.score', JSON.stringify(s)); } catch (e) {} }
+  function renderScore() {
+    const el = document.getElementById('chess-score'); if (!el) return;
+    const t = window.t || ((k) => k); const s = loadScore();
+    el.textContent = `${t('chess.score')} — ${t('chess.wins')} ${s.w} · ${t('chess.draws')} ${s.d} · ${t('chess.losses')} ${s.l}`;
+  }
+
+  function finishGame() {
+    updateStatus();
+    if (scored) return;
+    const s = loadScore();
+    if (game.in_checkmate()) { if (game.turn() === 'w') s.l++; else s.w++; }
+    else if (game.in_draw() || game.in_stalemate()) { s.d++; }
+    else return;
+    saveScore(s); scored = true; renderScore();
+  }
+
+  function newGame() { game = new window.Chess(); selected = null; lastMove = null; thinking = false; scored = false; render(); updateStatus(); renderScore(); }
+
+  window.ChessGame = { newGame, setTheme: applyTheme, _state: () => ({ fen: () => game.fen(), thinking }) };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!boardEl()) return;
+    newGame();
+    renderThemeChips();
+    renderScore();
+    const nb = document.getElementById('chess-new'); if (nb) nb.addEventListener('click', newGame);
+    const rb = document.getElementById('chess-reset'); if (rb) rb.addEventListener('click', () => { saveScore({ w: 0, d: 0, l: 0 }); renderScore(); });
+    window.registerRenderer(() => { updateStatus(); renderThemeChips(); renderScore(); }); // refresh on language change
+  });
+})();
+</script>
+  <script>(function () {
+  const panel = () => document.getElementById('console-panel');
+  const out = () => document.getElementById('console-out');
+  const T = (k) => (window.t ? window.t(k) : k);
+
+  function print(line) {
+    const o = out(); if (!o) return;
+    const div = document.createElement('div');
+    div.textContent = line;        // textContent — нет HTML-инъекции
+    o.appendChild(div);
+    o.scrollTop = o.scrollHeight;
+  }
+  function open() { panel().hidden = false; const i = document.getElementById('console-in'); if (i) i.focus(); }
+  function close() { panel().hidden = true; }
+  window.MiniConsole = { print, open, close };
+
+  // ——— Easter-egg effects (vanilla, reduced-motion-safe) ———
+  const eggReduce = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function shootingStar() {
+    if (eggReduce()) return;
+    const s = document.createElement('div');
+    s.className = 'egg-star';
+    s.style.top = (8 + Math.random() * 34) + 'vh';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1300);
+  }
+  function starShower(n) {
+    let k = 0; const id = setInterval(() => { shootingStar(); if (++k >= (n || 8)) clearInterval(id); }, 170);
+  }
+  function confettiBurst() {
+    if (eggReduce()) return;
+    const glyphs = ['♟', '♞', '♝', '♜', '♛', '♚', '✦', '✧'];
+    for (let i = 0; i < 30; i++) {
+      const c = document.createElement('div');
+      c.className = 'egg-confetti';
+      c.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      c.style.left = (Math.random() * 100) + 'vw';
+      c.style.animationDelay = (Math.random() * 0.35) + 's';
+      c.style.color = Math.random() < 0.5 ? 'var(--accent)' : 'var(--accent-text)';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2800);
+    }
+  }
+  function sparkleBurst(x, y) {
+    if (eggReduce()) return;
+    for (let i = 0; i < 10; i++) {
+      const sp = document.createElement('div');
+      sp.className = 'egg-sparkle';
+      const a = (Math.PI * 2 * i) / 10, d = 26 + Math.random() * 22;
+      sp.style.left = x + 'px'; sp.style.top = y + 'px';
+      sp.style.setProperty('--dx', (Math.cos(a) * d) + 'px');
+      sp.style.setProperty('--dy', (Math.sin(a) * d) + 'px');
+      sp.textContent = '✦';
+      document.body.appendChild(sp);
+      setTimeout(() => sp.remove(), 850);
+    }
+  }
+
+  function run(raw) {
+    const parts = raw.trim().split(/\s+/);
+    const cmd = (parts[0] || '').toLowerCase();
+    const arg = (parts[1] || '').toLowerCase();
+    print('> ' + raw);
+    if (cmd === '') return;
+    switch (cmd) {
+      case 'help': print(T('console.help')); return;
+      case 'clear': { const o = out(); if (o) o.innerHTML = ''; return; }
+      case 'play': {
+        const sec = document.getElementById('chess');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+        if (window.ChessGame && window.ChessGame.newGame) window.ChessGame.newGame();
+        print('play: ok'); return;
+      }
+      case 'theme': {
+        const map = { 'бумага': 'paper', 'классика': 'classic', 'полночь': 'midnight', 'терракота': 'terracotta',
+                      paper: 'paper', classic: 'classic', midnight: 'midnight', terracotta: 'terracotta' };
+        if (!arg) { print(T('console.themes_list')); return; }
+        if (map[arg] && window.ChessGame && window.ChessGame.setTheme) { window.ChessGame.setTheme(map[arg]); print('theme: ' + map[arg]); return; }
+        print(T('console.themes_list')); return;
+      }
+      case 'lang': {
+        if (arg !== 'ru' && arg !== 'en') { print(T('console.lang_usage').replace('{n}', document.documentElement.lang)); return; }
+        if (window.setLang) window.setLang(arg); print('lang: ' + arg); return;
+      }
+      case 'contact': {
+        print(T('contact.bot_cta') + ': ' + T('contact.bot_url') + '  ·  ' + T('contact.linkedin_url')); return;
+      }
+      // ——— скрытые пасхалки (намеренно НЕ в help) ———
+      case 'xyzzy': print(T('console.egg_xyzzy')); return;
+      case '1000': print(T('console.egg_1000')); return;
+      case 'stars': starShower(10); print('✦ ✧ ✦'); return;
+      case 'confetti': case 'boom': confettiBurst(); print('🎉'); return;
+    }
+    print(T('console.unknown'));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ob = document.getElementById('console-open');
+    const input = document.getElementById('console-in');
+    if (!ob || !panel()) return;
+    ob.addEventListener('click', () => (panel().hidden ? open() : close()));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    if (input) input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { run(input.value); input.value = ''; } });
+
+    // egg: клавиша ` открывает/закрывает консоль (терминал)
+    document.addEventListener('keydown', (e) => {
+      const tag = e.target && e.target.tagName;
+      if (e.key === '`' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); panel().hidden ? open() : close(); }
+    });
+    // egg: наведение на скрытый хотспот в хедере → падающая звезда
+    const hero = document.getElementById('hero');
+    if (hero) {
+      const hot = document.createElement('div');
+      hot.className = 'egg-hotspot'; hot.setAttribute('aria-hidden', 'true');
+      hero.appendChild(hot);
+      let cd = false;
+      hot.addEventListener('mouseenter', () => { if (cd) return; cd = true; shootingStar(); setTimeout(() => (cd = false), 900); });
+    }
+    // egg: двойной клик по логотипу → искры
+    const brand = document.querySelector('.nav-brand');
+    if (brand) brand.addEventListener('dblclick', (e) => sparkleBurst(e.clientX, e.clientY));
+
+    // ——— Konami-код: разблокирует тему «Терракота» + тост + лёгкая анимация ———
+    const seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let i = 0;
+    document.addEventListener('keydown', (e) => {
+      const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      i = (k === seq[i]) ? i + 1 : (k === seq[0] ? 1 : 0);
+      if (i === seq.length) {
+        i = 0;
+        if (window.ChessGame && window.ChessGame.setTheme) window.ChessGame.setTheme('terracotta');
+        open(); print(T('console.egg_konami'));
+        if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+          document.body.classList.add('egg-rain');
+          setTimeout(() => document.body.classList.remove('egg-rain'), 2500);
+        }
+      }
+    });
+  });
+})();
+</script>
+  <script>(function () {
+  // После деплоя воркера (см. worker/README.md) вставить сюда его URL.
+  // Пусто = счётчик выключен, бейдж скрыт, лендинг работает как обычно.
+  const WORKER_URL = '';
+  if (!WORKER_URL) return;
+
+  const today = new Date().toISOString().slice(0, 10);
+  let hit = true;
+  try { hit = localStorage.getItem('visit.day') !== today; } catch (e) {}
+
+  fetch(WORKER_URL + (hit ? '/hit' : '/count'))
+    .then((r) => r.json())
+    .then((d) => {
+      if (hit) { try { localStorage.setItem('visit.day', today); } catch (e) {} }
+      const el = document.getElementById('visitors');
+      if (!el || typeof d.count !== 'number') return;
+      const tmpl = window.t ? window.t('counter.visitors') : '{n} visitors';
+      el.textContent = tmpl.replace('{n}', d.count.toLocaleString());
+      el.hidden = false;
+    })
+    .catch(() => { /* воркер недоступен — бейдж остаётся скрытым */ });
+})();
+</script>
+</body>
+</html>
