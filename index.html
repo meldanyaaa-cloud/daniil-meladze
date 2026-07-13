@@ -33,7 +33,7 @@
   --maxw: 1120px;
   --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --space-section: clamp(72px, 10vw, 132px);
+  --space-section: clamp(52px, 6.5vw, 92px);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0}
@@ -59,7 +59,7 @@ body::before{
 
 /* ===== Shared ===== */
 .label{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);font-weight:500}
-.section-head{margin-bottom:48px;max-width:680px}
+.section-head{margin-bottom:34px;max-width:680px}
 .section-head h2{font-size:clamp(28px,4vw,42px);margin-top:14px}
 .section-hint{margin-top:12px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted)}
 
@@ -126,7 +126,7 @@ body::before{
 .case-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
   padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;
   transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;position:relative}
-.case-card:hover,.case-card:focus-visible{transform:translateY(-4px);box-shadow:0 2px 4px rgba(38,32,27,.05),0 18px 40px rgba(38,32,27,.10);border-color:var(--accent)}
+.case-card:hover,.case-card:focus-within,.case-card.pinned{transform:translateY(-4px);box-shadow:0 2px 4px rgba(38,32,27,.05),0 18px 40px rgba(38,32,27,.10);border-color:var(--accent)}
 .case-head{display:flex;align-items:center;gap:10px}
 .case-icon{display:inline-flex;color:var(--accent);flex:none}
 .case-icon svg{width:20px;height:20px}
@@ -134,11 +134,14 @@ body::before{
 .case-title{font-size:19px;margin-top:14px;letter-spacing:-.01em}
 .case-stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
 .case-stack .chip{font-size:11px;padding:4px 9px}
-.case-essence{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.5;max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease,margin-top .35s ease}
-.case-card:hover .case-essence,.case-card:focus-visible .case-essence,.case-card.open .case-essence{max-height:8em;opacity:1;margin-top:14px}
-.case-metric{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;line-height:1.4;letter-spacing:.01em;color:var(--accent-text)}
-.case-detail{display:none;margin:10px 0 0;color:var(--ink-2);font-size:14px;line-height:1.55}
-.case-card.open .case-detail{display:block}
+.case-essence{margin:14px 0 0;color:var(--ink);font-size:15.5px;font-weight:600;line-height:1.45;
+  min-height:2.9em;display:flex;align-items:flex-start}
+.case-detail{margin-top:0;color:var(--ink-2);font-size:14px;line-height:1.55;
+  display:grid;grid-template-rows:0fr;opacity:0;
+  transition:grid-template-rows .42s cubic-bezier(.22,.61,.36,1),opacity .3s ease,margin-top .42s cubic-bezier(.22,.61,.36,1)}
+.case-detail-inner{overflow:hidden;min-height:0;margin:0}
+.case-card:hover .case-detail,.case-card:focus-within .case-detail,.case-card.pinned .case-detail{grid-template-rows:1fr;opacity:1;margin-top:14px}
+@media (prefers-reduced-motion:reduce){.case-detail{transition:opacity .2s ease}}
 
 /* ===== Approach ===== */
 #approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px}
@@ -158,9 +161,10 @@ body::before{
 
 /* ===== Education ===== */
 #education{background:var(--bg-alt);border-block:1px solid var(--border)}
-.edu{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0;border-top:1px solid var(--border)}
+.edu{padding:16px 0;border-top:1px solid var(--border)}
 .edu:first-child{border-top:0}
-.edu h3{font-size:17px;letter-spacing:-.01em;font-weight:700}
+.edu-level{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
+.edu h3{font-size:17px;letter-spacing:-.01em;font-weight:700;margin-top:5px}
 .edu-org{color:var(--ink-2);font-size:14px;margin-top:3px}
 
 /* ===== Stack ===== */
@@ -447,15 +451,15 @@ body::before{
     ],
 
     "cases.label": "Проекты",
-    "cases.title": "Мои достижения",
-    "cases.hint": "Наведите или нажмите на карточку",
+    "cases.title": "Чем я занимаюсь",
+    "cases.hint": "Наведите — раскроется описание, клик — закрепит",
     "cases.items": [
-      { "icon":"search","tag":"Executive search","title":"AI CRM для рекрутинга","essence":"Извлекает данные из интервью и ищет кандидатов по смыслу.","metric":"≈1,5–2 ч/день на аналитика (~$95K/год)","detail":"RAG + семантический поиск по данным кандидатов с защитой от галлюцинаций; высвободил время аналитиков и добавил ~4 FTE мощности без найма.","stack":["FastAPI","pgvector","RAG","React/TS"] },
-      { "icon":"phone","tag":"Финансы","title":"AI-анализ звонков продаж","essence":"Расшифровывает каждый звонок, находит возражения, обновляет CRM.","metric":"Охват контроля 5–10% → в несколько раз больше","detail":"STT с диаризацией + LLM-оценка на Kubernetes; вместо точечных проверок — стабильный проверяемый контроль качества.","stack":["STT+диаризация","LLM","CRM","K8s"] },
-      { "icon":"mic","tag":"Промышленность · ERP","title":"Голосовое оформление счетов и актов","essence":"Документ собирается со слов сотрудника прямо на объекте.","metric":"Цикл документа 7 → 1–2 дня","detail":"Голосовой ввод + LLM генерирует счета/акты с интеграцией в ERP-систему; ошибок кратно меньше.","stack":["STT","LLM","ERP","Kubernetes"] },
-      { "icon":"card","tag":"Платежи","title":"Платёжный продукт для бизнеса","essence":"Владел B2B-платёжным продуктом end-to-end.","metric":"Выше success rate · быстрее расчёты · меньше замороженных средств","detail":"Отвечал за vision, P&L и юнит-экономику; маршрутизация и decisioning, сеттлмент и реконсиляция; автоматизация выплат сократила замороженные средства. Точные показатели — в резюме.","stack":["Product","P&L","routing","settlement"] },
-      { "icon":"clipboard","tag":"Консалтинг","title":"Платформа оценки оргразвития","essence":"Анонимные опросы и автоматические отчёты.","metric":"Опрос → анализ → отчёт в одном месте","detail":"Автоматизировал прохождение опросов компаниями с разбивкой по отделам — выше качество работы и полнота данных по каждой компании; единый анализ результатов по всем методологиям в одном месте и автогенерация нужных отчётов.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
-      { "icon":"bot","tag":"AI-автоматизация","title":"Агентная аналитика и отчётность","essence":"Агенты заменяют ручную аналитику и шлют утренний дайджест.","metric":"Ручная отчётность → автоматизирована","detail":"Сбор данных по расписанию, сводки аномалий, дайджест в Slack, с guardrails и human-in-the-loop.","stack":["LLM-агенты","оркестрация","Slack"] }
+      { "icon":"search","tag":"Executive search","title":"AI CRM для рекрутинга","essence":"Кандидаты больше не теряются в записях интервью.","detail":"Раньше данные из десятков интервью оседали в заметках, и найти нужного человека было почти нереально. Сделал платформу: она расшифровывает разговоры, собирает структурный профиль кандидата — каждый факт с цитатой из интервью, без выдумок — и ищет людей по смыслу, а не по ключевым словам. Аналитики выбрались из рутины и высвободили примерно 1,5–2 часа в день каждый.","stack":["FastAPI","pgvector","RAG","React"] },
+      { "icon":"clipboard","tag":"Консалтинг · HR-аналитика","title":"Платформа диагностики компаний","essence":"Диагностика «здоровья» компании без ручной возни с анкетами.","detail":"Оценить состояние большой организации — это сотни анонимных анкет и отчёты, которые собирают руками; готового решения на рынке не было. Сделал закрытую платформу для больших анонимных опросов по методологии оргразвития (адаптация McKinsey OHI): она собирает ответы по отделам, а ИИ помогает разобрать результаты по измерениям и собрать отчёт. Данные остаются в РФ, 152-ФЗ.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
+      { "icon":"phone","tag":"Финансы · Продажи","title":"AI-анализ звонков продаж","essence":"Каждый звонок под контролем, а не 5–10% на слух.","detail":"Раньше руководитель успевал послушать единицы звонков — как отдел на самом деле отрабатывает возражения, оставалось загадкой. Сделал систему, которая расшифровывает каждый звонок, сверяет со скриптом, смотрит работу с возражениями и связывает это с конверсией. Вместо точечных проверок — сплошная аналитика по всему отделу, а результаты сами ложатся в CRM.","stack":["STT + диаризация","LLM","CRM","Kubernetes"] },
+      { "icon":"ml","tag":"AI-автоматизация · Мониторинг","title":"Radar — мониторинг сигналов","essence":"Узнаю о ключевых событиях в компаниях раньше, чем они попадут в ленту.","detail":"Чтобы вовремя выйти на нужного человека, кто-то должен вручную мониторить новости по сотням компаний — вживую это невозможно. Сделал сервис, который сам следит за новостями (Telegram, RSS, сайты), а ИИ вытаскивает значимые события-«сигналы» — например, топ сменил работу, — убирает дубли и присылает готовую подборку. Ручной мониторинг превратился в утренний дайджест.","stack":["FastAPI","LLM","Telegram","очереди задач"] },
+      { "icon":"mic","tag":"Промышленность · 1С","title":"Голосовое оформление счетов и актов","essence":"Счёт или акт готов, пока сотрудник ещё на объекте.","detail":"Инженер работает в поле, а документы потом оформляют вручную — долго и с ошибками. Сделал так, что сотрудник прямо на месте наговаривает голосом, что сделано, а система собирает готовый счёт или акт и дублирует его в 1С. Без ручного ввода и потерянных бумаг.","stack":["STT","LLM","1С","Kubernetes"] },
+      { "icon":"card","tag":"Платежи · Финтех","title":"Автоматизация платёжных операций","essence":"Разнос транзакций по системам — теперь без человека.","detail":"На каждой транзакции данные вручную разносили по нескольким системам и чатам, и на этом сидел отдельный сотрудник. Объединил разрозненные каналы в один автоматический поток: при отправке платежа всё само попадает в базу, CRM и нужный чат. Ручная рутина ушла, время сотрудника освободилось.","stack":["интеграции","автоматизация","CRM"] }
     ],
 
     "approach.label": "Подход",
@@ -477,17 +481,18 @@ body::before{
     "education.label": "Образование",
     "education.title": "Образование",
     "education.items": [
-      { "dept": "Инвестиции на финансовых рынках", "org": "НИУ ВШЭ", "level": "магистратура" },
-      { "dept": "Управление цепями поставок и бизнес-аналитика", "org": "НИУ ВШЭ", "level": "бакалавриат" },
-      { "dept": "International Business Management", "org": "GBC · Торонто", "level": "магистратура" }
+      { "level": "Магистратура", "dept": "Банки и Финансы", "org": "Высшая Школа Экономики" },
+      { "level": "Бакалавриат", "dept": "Факультет Бизнеса и Менеджмента", "org": "Высшая Школа Экономики" },
+      { "level": "Диплом", "dept": "International Business Management", "org": "George Brown College · Торонто" }
     ],
 
     "stack.label": "Бэкграунд",
     "stack.title": "Образование и навыки",
     "stack.groups": [
-      { "name": "Продукт", "items": ["A/B-тесты","юнит-экономика","P&L / data-driven"] },
-      { "name": "AI / LLM", "items": ["Open Source LLM","RAG + pgvector","промпт-инжиниринг","контекст-инжиниринг","мультиагентные пайплайны"] },
-      { "name": "Данные и инжиниринг", "items": ["Python","SQL","системный дизайн","ETL / пайплайны данных","дашборды / BI"] },
+      { "name": "Продукт", "items": ["discovery","A/B-тесты","юнит-экономика","P&L","roadmap","воронки / CJM"] },
+      { "name": "AI / LLM", "items": ["OpenAI API","RAG","pgvector","семантический поиск","мультиагентные пайплайны","промпт-инжиниринг","Whisper / STT","защита от галлюцинаций"] },
+      { "name": "Инженерия", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","PostgreSQL","Docker","Redis","Celery / arq"] },
+      { "name": "Инфраструктура и системы", "items": ["Docker Compose","Caddy","Yandex Cloud","JWT / 2FA","1С / ERP","CRM","Telegram-боты","платёжные интеграции","дашборды / BI"] },
       { "name": "Языки", "items": ["Русский (родной)","Английский (IELTS 7.0)","Итальянский (B1)"] }
     ],
 
@@ -551,15 +556,15 @@ body::before{
     ],
 
     "cases.label": "Projects",
-    "cases.title": "Selected work",
-    "cases.hint": "Hover or tap a card",
+    "cases.title": "What I do",
+    "cases.hint": "Hover to preview — click to keep it open",
     "cases.items": [
-      { "icon":"search","tag":"Executive search","title":"AI CRM for recruiting","essence":"Extracts interview data and finds candidates by meaning.","metric":"≈1.5–2 hrs/day per analyst (~$95K/yr)","detail":"RAG + semantic search over candidate data with hallucination guardrails; freed analyst time and added ~4 FTE of capacity without hiring.","stack":["FastAPI","pgvector","RAG","React/TS"] },
-      { "icon":"phone","tag":"Finance","title":"AI sales-call analysis","essence":"Transcribes every call, surfaces objections, updates the CRM.","metric":"QC coverage 5–10% → several-fold","detail":"Speech-to-text with diarization + LLM scoring on Kubernetes; turned spot-checks into consistent, auditable quality control.","stack":["STT+diarization","LLM","CRM","K8s"] },
-      { "icon":"mic","tag":"Industry · ERP","title":"Voice-driven invoicing & acts","essence":"The document is assembled from the worker's words on site.","metric":"Document cycle 7 → 1–2 days","detail":"Voice input + LLM generates invoices/acts with an ERP integration; far fewer errors.","stack":["STT","LLM","ERP","Kubernetes"] },
-      { "icon":"card","tag":"Payments","title":"Payments product for business","essence":"Owned a B2B payments product end-to-end.","metric":"Higher success rate · faster settlement · fewer frozen funds","detail":"Owned vision, P&L and unit economics; routing and decisioning, settlement and reconciliation; payout automation cut frozen funds. Detailed metrics available in my CV.","stack":["Product","P&L","routing","settlement"] },
-      { "icon":"clipboard","tag":"Consulting","title":"Org-health assessment platform","essence":"Anonymous surveys and automated reports.","metric":"Survey → analysis → report in one place","detail":"Automated survey completion for client companies with a per-department breakdown — improving work quality and data coverage for each company; unified analysis of results across all methodologies in one place, with automated generation of the required reports.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
-      { "icon":"bot","tag":"AI automation","title":"Agentic analytics & reporting","essence":"Agents replace manual analytics and post a morning digest.","metric":"Manual reporting → automated","detail":"Scheduled data pulls, anomaly summaries, a Slack digest, with guardrails and a human-in-the-loop check.","stack":["LLM agents","orchestration","Slack"] }
+      { "icon":"search","tag":"Executive search","title":"AI CRM for recruiting","essence":"Candidates stop getting lost in interview notes.","detail":"Data from dozens of interviews used to sit scattered in notes, and finding the right person was nearly impossible. I built a platform that transcribes the conversations, assembles a structured candidate profile — every fact backed by a quote, no made-up data — and finds people by meaning, not keywords. Analysts got out of the busywork and freed up roughly 1.5–2 hours a day each.","stack":["FastAPI","pgvector","RAG","React"] },
+      { "icon":"clipboard","tag":"Consulting · HR analytics","title":"Company diagnostics platform","essence":"Company-health diagnostics without the manual survey grind.","detail":"Assessing the state of a large organization means hundreds of anonymous surveys and reports assembled by hand — nothing off-the-shelf existed. I built a closed platform for large anonymous org-development surveys (an adaptation of McKinsey's OHI): it gathers answers per department, and AI helps break down results across dimensions and assemble the report. Data stays in-region under local data-residency compliance.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
+      { "icon":"phone","tag":"Finance · Sales","title":"AI sales-call analysis","essence":"Every sales call reviewed — not just 5–10% by ear.","detail":"Managers only ever caught a handful of calls, so how the team actually handled objections stayed a mystery. I built a system that transcribes every call, checks it against the script, looks at objection handling and ties it to conversion. Instead of spot-checks — full analytics across the team, with results landing in the CRM automatically.","stack":["STT + diarization","LLM","CRM","Kubernetes"] },
+      { "icon":"ml","tag":"AI automation · Monitoring","title":"Radar — signal monitoring","essence":"I know about key moves at target companies before they hit the feed.","detail":"Reaching the right person in time would mean someone manually tracking news across hundreds of companies — impossible by hand. I built a service that watches the news itself (Telegram, RSS, websites), and AI pulls out meaningful events — 'signals', like an exec changing jobs — removes duplicates and delivers a ready digest. Manual monitoring turned into a morning digest.","stack":["FastAPI","LLM","Telegram","task queues"] },
+      { "icon":"mic","tag":"Industry · ERP","title":"Voice-driven invoicing & acts","essence":"The invoice is ready while the worker is still on site.","detail":"Field staff do the work, then documents get filled in later by hand — slow and error-prone. I made it so the worker dictates what was done right on site, and the system assembles a finished invoice or act and mirrors it into the ERP/accounting system. No manual entry, no lost paperwork.","stack":["STT","LLM","ERP","Kubernetes"] },
+      { "icon":"card","tag":"Payments · Fintech","title":"Payment operations automation","essence":"Moving transactions between systems — now with no one in the loop.","detail":"Every transaction meant manually copying data across several systems and chats, and a whole role was spent on it. I merged the disconnected channels into one automatic flow: when a payment is sent, everything lands in the database, CRM and the right chat by itself. The manual routine is gone and the person's time is freed up.","stack":["integrations","automation","CRM"] }
     ],
 
     "approach.label": "Approach",
@@ -581,17 +586,18 @@ body::before{
     "education.label": "Education",
     "education.title": "Education",
     "education.items": [
-      { "dept": "Investments in Financial Markets", "org": "HSE University", "level": "Master's" },
-      { "dept": "Supply Chain Management & Business Analytics", "org": "HSE University", "level": "Bachelor's" },
-      { "dept": "International Business Management", "org": "GBC · Toronto", "level": "Master's" }
+      { "level": "Master's", "dept": "Banking & Finance", "org": "HSE University" },
+      { "level": "Bachelor's", "dept": "Business & Management", "org": "HSE University" },
+      { "level": "Postgraduate", "dept": "International Business Management", "org": "George Brown College · Toronto" }
     ],
 
     "stack.label": "Background",
     "stack.title": "Education & skills",
     "stack.groups": [
-      { "name": "Product", "items": ["A/B testing","unit economics","P&L / data-driven"] },
-      { "name": "AI / LLM", "items": ["Open Source LLM","RAG + pgvector","prompt engineering","context engineering","multi-agent pipelines"] },
-      { "name": "Data & engineering", "items": ["Python","SQL","system design","ETL / data pipelines","dashboards / BI"] },
+      { "name": "Product", "items": ["discovery","A/B testing","unit economics","P&L","roadmap","funnels / CJM"] },
+      { "name": "AI / LLM", "items": ["OpenAI API","RAG","pgvector","semantic search","multi-agent pipelines","prompt engineering","Whisper / STT","hallucination guardrails"] },
+      { "name": "Engineering", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","PostgreSQL","Docker","Redis","Celery / arq"] },
+      { "name": "Infrastructure & systems", "items": ["Docker Compose","Caddy","cloud deploy","JWT / 2FA","ERP","CRM","Telegram bots","payment integrations","dashboards / BI"] },
       { "name": "Languages", "items": ["Russian (native)","English (IELTS 7.0)","Italian (B1)"] }
     ],
 
@@ -741,19 +747,19 @@ body::before{
     const grid = document.getElementById('cases-grid');
     if (!grid) return;
     grid.innerHTML = (window.CONTENT[lng]['cases.items'] || []).map(c => `
-      <article class="case-card" role="button" tabindex="0" aria-expanded="false">
+      <article class="case-card" tabindex="0" role="button" aria-expanded="false">
         <div class="case-head"><span class="case-icon" aria-hidden="true">${CASE_ICONS[c.icon] || ''}</span><span class="case-tag">${c.tag}</span></div>
         <h3 class="case-title">${c.title}</h3>
         <div class="case-stack">${c.stack.map(s => `<span class="chip">${s}</span>`).join('')}</div>
         <p class="case-essence">${c.essence}</p>
-        <div class="case-metric">${c.metric || ''}</div>
-        <p class="case-detail">${c.detail || ''}</p>
+        <div class="case-detail"><div class="case-detail-inner">${c.detail || ''}</div></div>
       </article>`).join('');
-    grid.onclick = (e) => { const card = e.target.closest('.case-card'); if (card) toggleCase(card); };
+    const pin = (card) => card.setAttribute('aria-expanded', card.classList.toggle('pinned') ? 'true' : 'false');
+    grid.onclick = (e) => { const card = e.target.closest('.case-card'); if (card) pin(card); };
     grid.onkeydown = (e) => {
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const card = e.target.closest('.case-card'); if (!card) return;
-      e.preventDefault(); toggleCase(card);
+      e.preventDefault(); pin(card);
     };
   });
 
@@ -777,10 +783,9 @@ body::before{
   window.registerRenderer((tt, lng) => {
     const el = document.getElementById('education-list');
     if (!el) return;
-    el.innerHTML = (window.CONTENT[lng]['education.items'] || []).map(e => {
-      const sub = [e.org, e.level].filter(Boolean).join(' · ');
-      return `<div class="edu"><div><h3>${e.dept}</h3><div class="edu-org">${sub}</div></div></div>`;
-    }).join('');
+    el.innerHTML = (window.CONTENT[lng]['education.items'] || []).map(e =>
+      `<div class="edu"><div class="edu-level">${e.level || ''}</div><h3>${e.dept}</h3><div class="edu-org">${e.org || ''}</div></div>`
+    ).join('');
   });
 
   window.registerRenderer((tt, lng) => {
