@@ -454,6 +454,7 @@ body::before{
     "cases.title": "Чем я занимаюсь",
     "cases.hint": "Наведите — раскроется описание, клик — закрепит",
     "cases.items": [
+      { "icon":"annotate","tag":"Рефлексивный AI · iOS + Web","title":"Aena — интерфейс для размышления","essence":"Размечает текст пользователя его же словами — без советов и генерации «от себя».","detail":"Aena размечает запись пользователя: наблюдения, противоречия, темы и открытые вопросы, каждый привязан к конкретному фрагменту. Разметку даёт не языковая модель по промпту, а дообученная multi-task модель на XLM-R: multi-label классификация тем по каждому сегменту плюс отдельная safety-голова, int8-квантизация для инференса на CPU. Обработка — детерминированный конвейер без LLM-агентов; ML-сервис изолирован и вызывается по HTTP. Слой памяти проецируется в граф Neo4j через транзакционный outbox: сущности, темы и противоречия связываются рёбрами между записями. Клиенты — нативный iOS на SwiftUI и веб на React; бэкенд на FastAPI, Celery и PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI"] },
       { "icon":"search","tag":"Executive search","title":"AI CRM для рекрутинга","essence":"Кандидаты больше не теряются в записях интервью.","detail":"Раньше данные из десятков интервью оседали в заметках, и найти нужного человека было почти нереально. Сделал платформу: она расшифровывает разговоры, собирает структурный профиль кандидата — каждый факт с цитатой из интервью, без выдумок — и ищет людей по смыслу, а не по ключевым словам. Аналитики выбрались из рутины и высвободили примерно 1,5–2 часа в день каждый.","stack":["FastAPI","pgvector","RAG","React"] },
       { "icon":"clipboard","tag":"Консалтинг · HR-аналитика","title":"Платформа диагностики компаний","essence":"Диагностика «здоровья» компании без ручной возни с анкетами.","detail":"Оценить состояние большой организации — это сотни анонимных анкет и отчёты, которые собирают руками; готового решения на рынке не было. Сделал закрытую платформу для больших анонимных опросов по методологии оргразвития (адаптация McKinsey OHI): она собирает ответы по отделам, а ИИ помогает разобрать результаты по измерениям и собрать отчёт. Данные остаются в РФ, 152-ФЗ.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
       { "icon":"phone","tag":"Финансы · Продажи","title":"AI-анализ звонков продаж","essence":"Каждый звонок под контролем, а не 5–10% на слух.","detail":"Раньше руководитель успевал послушать единицы звонков — как отдел на самом деле отрабатывает возражения, оставалось загадкой. Сделал систему, которая расшифровывает каждый звонок, сверяет со скриптом, смотрит работу с возражениями и связывает это с конверсией. Вместо точечных проверок — сплошная аналитика по всему отделу, а результаты сами ложатся в CRM.","stack":["STT + диаризация","LLM","CRM","Kubernetes"] },
@@ -473,7 +474,7 @@ body::before{
     "experience.label": "Опыт",
     "experience.title": "Опыт работы",
     "experience.items": [
-      { "tag": "AI-продукты", "role": "AI Product Manager", "essence": "AI-продукты от гипотезы и метрик до архитектуры: executive search, анализ звонков, голосовой документооборот." },
+      { "tag": "AI-продукты", "role": "AI Product Manager", "essence": "AI-продукты от гипотезы и метрик до архитектуры: собственный рефлексивный продукт Aena, executive search, анализ звонков, голосовой документооборот." },
       { "tag": "Финтех", "role": "Product Manager", "essence": "Продуктовая стратегия, юнит-экономика и P&L в платёжном продукте для бизнеса." },
       { "tag": "B2B", "role": "Key Account Manager", "essence": "Крупные клиенты из банков, энергетики и промышленности; рост повторных продаж." }
     ],
@@ -491,7 +492,7 @@ body::before{
     "stack.groups": [
       { "name": "Продукт", "items": ["discovery","A/B-тесты","юнит-экономика","P&L","roadmap","воронки / CJM"] },
       { "name": "AI / LLM", "items": ["OpenAI API","RAG","pgvector","семантический поиск","мультиагентные пайплайны","промпт-инжиниринг","Whisper / STT","защита от галлюцинаций"] },
-      { "name": "Инженерия", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","PostgreSQL","Docker","Redis","Celery / arq"] },
+      { "name": "Инженерия", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","Swift / SwiftUI","PostgreSQL","Docker","Redis","Celery / arq"] },
       { "name": "Инфраструктура и системы", "items": ["Docker Compose","Caddy","Yandex Cloud","JWT / 2FA","1С / ERP","CRM","Telegram-боты","платёжные интеграции","дашборды / BI"] },
       { "name": "Языки", "items": ["Русский (родной)","Английский (IELTS 7.0)","Итальянский (B1)"] }
     ],
@@ -559,6 +560,7 @@ body::before{
     "cases.title": "What I do",
     "cases.hint": "Hover to preview — click to keep it open",
     "cases.items": [
+      { "icon":"annotate","tag":"Reflective AI · iOS + Web","title":"Aena — a thinking interface","essence":"Annotates the user's text in their own words — no advice, no generated content.","detail":"Aena annotates a user's entry: observations, contradictions, themes and open questions, each anchored to a specific fragment. The annotations come from a fine-tuned multi-task XLM-R model, not a prompted LLM: multi-label per-segment theme classification plus a separate safety head, int8-quantized for CPU inference. Processing is a deterministic pipeline with no LLM agents; the ML service is isolated and called over HTTP. The memory layer is projected into a Neo4j graph through a transactional outbox: entities, themes and contradictions linked by edges across entries. Clients are a native iOS app in SwiftUI and a React web app; the backend runs on FastAPI, Celery and PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI"] },
       { "icon":"search","tag":"Executive search","title":"AI CRM for recruiting","essence":"Candidates stop getting lost in interview notes.","detail":"Data from dozens of interviews used to sit scattered in notes, and finding the right person was nearly impossible. I built a platform that transcribes the conversations, assembles a structured candidate profile — every fact backed by a quote, no made-up data — and finds people by meaning, not keywords. Analysts got out of the busywork and freed up roughly 1.5–2 hours a day each.","stack":["FastAPI","pgvector","RAG","React"] },
       { "icon":"clipboard","tag":"Consulting · HR analytics","title":"Company diagnostics platform","essence":"Company-health diagnostics without the manual survey grind.","detail":"Assessing the state of a large organization means hundreds of anonymous surveys and reports assembled by hand — nothing off-the-shelf existed. I built a closed platform for large anonymous org-development surveys (an adaptation of McKinsey's OHI): it gathers answers per department, and AI helps break down results across dimensions and assemble the report. Data stays in-region under local data-residency compliance.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
       { "icon":"phone","tag":"Finance · Sales","title":"AI sales-call analysis","essence":"Every sales call reviewed — not just 5–10% by ear.","detail":"Managers only ever caught a handful of calls, so how the team actually handled objections stayed a mystery. I built a system that transcribes every call, checks it against the script, looks at objection handling and ties it to conversion. Instead of spot-checks — full analytics across the team, with results landing in the CRM automatically.","stack":["STT + diarization","LLM","CRM","Kubernetes"] },
@@ -578,7 +580,7 @@ body::before{
     "experience.label": "Experience",
     "experience.title": "Experience",
     "experience.items": [
-      { "tag": "AI products", "role": "AI Product Manager", "essence": "AI products from hypothesis and metrics to architecture: executive search, call analysis, voice document flow." },
+      { "tag": "AI products", "role": "AI Product Manager", "essence": "AI products from hypothesis and metrics to architecture: Aena — my own reflective product, executive search, call analysis, voice document flow." },
       { "tag": "Fintech", "role": "Product Manager", "essence": "Product strategy, unit economics, and P&L in a B2B payments product." },
       { "tag": "B2B", "role": "Key Account Manager", "essence": "Large clients across banking, energy, and industry; growth in repeat business." }
     ],
@@ -596,7 +598,7 @@ body::before{
     "stack.groups": [
       { "name": "Product", "items": ["discovery","A/B testing","unit economics","P&L","roadmap","funnels / CJM"] },
       { "name": "AI / LLM", "items": ["OpenAI API","RAG","pgvector","semantic search","multi-agent pipelines","prompt engineering","Whisper / STT","hallucination guardrails"] },
-      { "name": "Engineering", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","PostgreSQL","Docker","Redis","Celery / arq"] },
+      { "name": "Engineering", "items": ["Python","TypeScript","SQL","FastAPI","React","Next.js","Swift / SwiftUI","PostgreSQL","Docker","Redis","Celery / arq"] },
       { "name": "Infrastructure & systems", "items": ["Docker Compose","Caddy","cloud deploy","JWT / 2FA","ERP","CRM","Telegram bots","payment integrations","dashboards / BI"] },
       { "name": "Languages", "items": ["Russian (native)","English (IELTS 7.0)","Italian (B1)"] }
     ],
@@ -735,7 +737,8 @@ body::before{
     phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
     bot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>',
     card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
-    ml: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3.5-3.5 3 3L21 7"/></svg>'
+    ml: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3.5-3.5 3 3L21 7"/></svg>',
+    annotate: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="17" x2="10" y2="17"/><circle cx="18" cy="16" r="2.5"/></svg>'
   };
 
   function toggleCase(card) {
