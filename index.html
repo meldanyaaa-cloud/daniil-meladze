@@ -122,33 +122,109 @@ body::before{
 
 /* ===== Cases ===== */
 #cases{background:var(--bg-alt);border-block:1px solid var(--border)}
-#cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start}
-.case-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;position:relative}
-.case-card:hover,.case-card:focus-within,.case-card.pinned{transform:translateY(-4px);box-shadow:0 2px 4px rgba(38,32,27,.05),0 18px 40px rgba(38,32,27,.10);border-color:var(--accent)}
-.case-head{display:flex;align-items:center;gap:10px}
-.case-icon{display:inline-flex;color:var(--accent);flex:none}
-.case-icon svg{width:20px;height:20px}
-.case-tag{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
-.case-title{font-size:19px;margin-top:14px;letter-spacing:-.01em}
-.case-stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
-.case-stack .chip{font-size:11px;padding:4px 9px}
-.case-essence{margin:14px 0 0;color:var(--ink);font-size:15.5px;font-weight:600;line-height:1.45;
-  min-height:2.9em;display:flex;align-items:flex-start}
-.case-detail{margin-top:0;color:var(--ink-2);font-size:14px;line-height:1.55;
+#cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start}
+
+/* Soft card: rounded corners, no crop-marks, no divider lines — matches the Approach panel */
+.case-card{
+  position:relative;background:var(--surface);border-radius:16px;
+  padding:24px 26px 20px;box-shadow:0 1px 2px rgba(38,32,27,.03),0 10px 30px rgba(38,32,27,.06);
+  display:flex;flex-direction:column;cursor:pointer;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.case-card:hover,.case-card:focus-within,.case-card.pinned{
+  transform:translateY(-3px);
+  box-shadow:0 2px 4px rgba(38,32,27,.04),0 22px 50px rgba(38,32,27,.10);
+}
+
+.case-frame{display:flex;align-items:center;margin-bottom:14px;
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em}
+.case-slug{color:var(--accent-text);font-weight:500}
+.case-slug::before{content:"\203A\00a0"}
+
+.case-title{font-size:19px;letter-spacing:-.015em;line-height:1.2}
+.case-essence{margin-top:10px;color:var(--ink);font-size:15px;font-weight:600;line-height:1.5}
+
+.case-meta{margin-top:16px;font-family:var(--font-mono);font-size:11.5px;line-height:1.5;
+  display:grid;grid-template-columns:auto 1fr;gap:5px 16px}
+.case-meta .mk{color:var(--muted);opacity:.7}
+.case-meta .mv{color:var(--ink-2)}
+
+/* Architecture highlights — soft tinted block (Aena flagship only) */
+.case-arch{margin-top:16px;background:var(--bg-alt);border-radius:12px;padding:16px 18px;
+  font-family:var(--font-mono);font-size:11.5px;line-height:1.5;display:flex;flex-direction:column;gap:8px}
+.arch-label{color:var(--muted);opacity:.7;letter-spacing:.05em}
+.arch-item{color:var(--ink-2);padding-left:14px;position:relative}
+.arch-item::before{content:"\00b7";position:absolute;left:3px;color:var(--accent-text);font-weight:700}
+
+.case-detail{color:var(--ink-2);font-size:14px;line-height:1.6;
   display:grid;grid-template-rows:0fr;opacity:0;
   transition:grid-template-rows .42s cubic-bezier(.22,.61,.36,1),opacity .3s ease,margin-top .42s cubic-bezier(.22,.61,.36,1)}
-.case-detail-inner{overflow:hidden;min-height:0;margin:0}
-.case-card:hover .case-detail,.case-card:focus-within .case-detail,.case-card.pinned .case-detail{grid-template-rows:1fr;opacity:1;margin-top:14px}
-@media (prefers-reduced-motion:reduce){.case-detail{transition:opacity .2s ease}}
+.case-detail-inner{overflow:hidden;min-height:0}
+.case-card:hover .case-detail,.case-card:focus-within .case-detail,.case-card.pinned .case-detail{grid-template-rows:1fr;opacity:1;margin-top:16px}
 
-/* ===== Approach ===== */
-#approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px}
-.pillar{padding:22px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
-.pillar-num{font-family:var(--font-mono);font-size:13px;color:var(--accent-text);font-weight:600}
-.pillar h3{font-size:18px;margin-top:10px;letter-spacing:-.01em}
-.pillar p{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.case-foot{display:flex;align-items:center;margin-top:18px;
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em}
+.case-more{color:var(--accent-text);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.case-more .car{display:inline-block;transition:transform .3s ease}
+.case-card:hover .case-more .car,.case-card:focus-within .case-more .car,.case-card.pinned .case-more .car{transform:rotate(90deg)}
+
+/* Flagship: Aena spans the row, detail always open */
+.case-card--lead{grid-column:1/-1;padding:30px 34px 26px;border-radius:20px}
+.case-card--lead .case-title{font-size:clamp(22px,2.6vw,29px)}
+.case-card--lead .case-essence{font-size:clamp(15.5px,1.4vw,17.5px)}
+.case-card--lead .case-detail{grid-template-rows:1fr;opacity:1;margin-top:16px}
+.case-card--lead .case-more{display:none}
+
+@media (min-width:861px){
+  .case-card--lead{display:grid;grid-template-columns:1.5fr 1fr;column-gap:40px;align-items:start}
+  .case-card--lead .case-frame{grid-column:1/-1;grid-row:1}
+  .case-card--lead .case-title{grid-column:1/-1;grid-row:2}
+  .case-card--lead .case-essence{grid-column:1;grid-row:3;margin-top:12px}
+  /* right column: spec block + architecture highlights fill the space beside the detail */
+  .case-card--lead .case-meta{grid-column:2;grid-row:3;align-self:start;margin-top:6px;
+    background:var(--bg-alt);border-radius:12px;padding:16px 18px;gap:6px 16px}
+  .case-card--lead .case-arch{grid-column:2;grid-row:4;align-self:start;margin-top:14px}
+  .case-card--lead .case-detail{grid-column:1;grid-row:4;max-width:64ch}
+  .case-card--lead .case-foot{grid-column:1/-1;grid-row:5}
+}
+
+@media (prefers-reduced-motion:reduce){.case-detail,.case-more .car{transition:none}}
+
+/* ===== Approach: Product × Engineering span ===== */
+/* Soft card: rounded corners, no crop-marks, no divider lines.
+   Rows separated by breathing room; a single soft accent spine
+   runs the full height = "one operator owns the whole column". */
+#approach-grid{max-width:760px}
+
+.span-panel{
+  position:relative;background:var(--surface);border-radius:20px;
+  padding:30px 34px 28px;
+  box-shadow:0 1px 2px rgba(38,32,27,.03),0 14px 40px rgba(38,32,27,.07);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.span-panel:hover{transform:translateY(-2px);
+  box-shadow:0 2px 4px rgba(38,32,27,.04),0 22px 54px rgba(38,32,27,.10)}
+
+/* Header: mono slug left, span caption right — no rule between them */
+.span-frame{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  margin-bottom:22px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em}
+.span-slug{color:var(--accent-text);font-weight:500}
+.span-slug::before{content:"\203A\00a0"}
+.span-cap{color:var(--muted);opacity:.75;text-align:right}
+
+/* Body: layered rows carried by the accent spine */
+.span-body{position:relative;padding-left:26px}
+.span-body::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:4px;
+  border-radius:4px;background:var(--accent);opacity:.85}
+
+.span-rows{display:flex;flex-direction:column;gap:18px}
+.span-row{display:grid;grid-template-columns:120px 1fr;align-items:baseline;gap:18px}
+.span-domain{font-family:var(--font-mono);font-size:14px;color:var(--ink);font-weight:500;letter-spacing:-.005em}
+.span-items{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-2);line-height:1.55}
+
+/* Kicker — separated by space, not a line */
+.span-note{margin-top:26px;max-width:58ch;
+  color:var(--ink);font-size:15.5px;line-height:1.55;font-weight:600}
 
 /* ===== Experience ===== */
 #experience-list{max-width:780px}
@@ -213,7 +289,12 @@ body::before{
 
 @media (max-width:860px){
   #cases-grid{grid-template-columns:1fr}
-  #approach-grid{grid-template-columns:1fr}
+  /* Approach span: tighter padding, rows stack domain over tags */
+  .span-panel{padding:26px 22px 24px}
+  .span-body{padding-left:20px}
+  .span-row{grid-template-columns:1fr;gap:4px}
+  .span-frame{flex-direction:column;gap:6px}
+  .span-cap{text-align:left}
   .job-head{gap:10px}
   .edu{flex-direction:column;gap:4px}
   .stack-group{grid-template-columns:1fr;gap:12px}
@@ -245,7 +326,7 @@ body::before{
   .hero-ctas{margin-top:28px}
   .hero-proof{margin-top:36px;padding-top:22px;gap:14px}
   .proof-item{padding-right:18px;margin-right:18px}
-  .case-card{padding:20px}
+  .case-card,.case-card--lead{padding:20px 20px 16px}
   .chess-bar{gap:10px}
   .chess-theme-chip{font-size:12px;padding:8px 12px}      /* крупнее тач-цель */
   #chess-new,#chess-reset{min-height:44px}
@@ -454,7 +535,7 @@ body::before{
     "cases.title": "Чем я занимаюсь",
     "cases.hint": "Наведите — раскроется описание, клик — закрепит",
     "cases.items": [
-      { "icon":"annotate","tag":"Рефлексивный AI · iOS + Web","title":"Aena — интерфейс для размышления","essence":"Размечает текст пользователя его же словами — без советов и генерации «от себя».","detail":"Aena размечает запись пользователя: наблюдения, противоречия, темы и открытые вопросы, каждый привязан к конкретному фрагменту. Разметку даёт не языковая модель по промпту, а дообученная multi-task модель на XLM-R: multi-label классификация тем по каждому сегменту плюс отдельная safety-голова, int8-квантизация для инференса на CPU. Обработка — детерминированный конвейер без LLM-агентов; ML-сервис изолирован и вызывается по HTTP. Слой памяти проецируется в граф Neo4j через транзакционный outbox: сущности, темы и противоречия связываются рёбрами между записями. Клиенты — нативный iOS на SwiftUI и веб на React; бэкенд на FastAPI, Celery и PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI"] },
+      { "icon":"annotate","tag":"Рефлексивный AI · iOS + Web","title":"Aena — интерфейс для размышления","essence":"Размечает текст пользователя его же словами — без советов и генерации «от себя».","detail":"Aena размечает запись аннотациями ровно трёх типов — наблюдение, уточнение и вопрос, — каждая привязана к конкретному фрагменту; Quality Gate проверяет каждый вывод на длину, отсутствие советов и запрещённой лексики. Обработка — детерминированный конвейер без LLM-агентов; ML-сервис изолирован и вызывается по HTTP. Классификатор тем подключаемый: детерминированный RU+EN лексикон по умолчанию и собственная дообученная multi-task модель на XLM-R (мультилейбл-темы по сегментам плюс safety-голова, int8-квантизация для CPU) как выбираемый бэкенд. Слой памяти проецируется в граф Neo4j через транзакционный outbox — сущности, темы и противоречия связываются рёбрами между записями, а Postgres остаётся источником истины. Монорепозиторий из 8 модулей; клиенты — нативный iOS на SwiftUI и веб на React, бэкенд на FastAPI, Celery и PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI · React"],"highlights":["Детерминированный конвейер · без LLM-агентов","ML-сервис изолирован, вызов по HTTP","Граф памяти в Neo4j (transactional outbox)","Монорепо из 8 модулей · Postgres — источник истины"] },
       { "icon":"search","tag":"Executive search","title":"AI CRM для рекрутинга","essence":"Кандидаты больше не теряются в записях интервью.","detail":"Раньше данные из десятков интервью оседали в заметках, и найти нужного человека было почти нереально. Сделал платформу: она расшифровывает разговоры, собирает структурный профиль кандидата — каждый факт с цитатой из интервью, без выдумок — и ищет людей по смыслу, а не по ключевым словам. Аналитики выбрались из рутины и высвободили примерно 1,5–2 часа в день каждый.","stack":["FastAPI","pgvector","RAG","React"] },
       { "icon":"clipboard","tag":"Консалтинг · HR-аналитика","title":"Платформа диагностики компаний","essence":"Диагностика «здоровья» компании без ручной возни с анкетами.","detail":"Оценить состояние большой организации — это сотни анонимных анкет и отчёты, которые собирают руками; готового решения на рынке не было. Сделал закрытую платформу для больших анонимных опросов по методологии оргразвития (адаптация McKinsey OHI): она собирает ответы по отделам, а ИИ помогает разобрать результаты по измерениям и собрать отчёт. Данные остаются в РФ, 152-ФЗ.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
       { "icon":"phone","tag":"Финансы · Продажи","title":"AI-анализ звонков продаж","essence":"Каждый звонок под контролем, а не 5–10% на слух.","detail":"Раньше руководитель успевал послушать единицы звонков — как отдел на самом деле отрабатывает возражения, оставалось загадкой. Сделал систему, которая расшифровывает каждый звонок, сверяет со скриптом, смотрит работу с возражениями и связывает это с конверсией. Вместо точечных проверок — сплошная аналитика по всему отделу, а результаты сами ложатся в CRM.","stack":["STT + диаризация","LLM","CRM","Kubernetes"] },
@@ -464,12 +545,17 @@ body::before{
     ],
 
     "approach.label": "Подход",
-    "approach.title": "Как я работаю",
-    "approach.pillars": [
-      { "title": "Владею продуктом целиком", "text": "От бизнес-гипотезы и unit-экономики до запуска и метрик — отвечаю за результат, а не за отдельный этап." },
-      { "title": "Собираю и веду команду", "text": "Ставлю задачи разработке и аналитике, синхронизирую бизнес и инженеров, выстраиваю процессы и приоритеты." },
-      { "title": "Технически глубоко в продукте", "text": "Пишу и читаю код (Python, SQL, FastAPI, React) — сам собираю прототипы и говорю с инженерами на одном языке." }
+    "approach.title": "Продукт × Инженерия",
+    "approach.frame": "охват",
+    "approach.layers": [
+      { "domain": "бизнес",    "items": ["гипотеза", "unit-экономика", "P&L"] },
+      { "domain": "продукт",   "items": ["спека", "роадмап", "приоритеты"] },
+      { "domain": "команда",   "items": ["задачи", "аналитика", "ритм"] },
+      { "domain": "прототип",  "items": ["FastAPI", "SQL", "React"] },
+      { "domain": "ml · инфра", "items": ["XLM-R", "Neo4j", "Celery", "k8s"] }
     ],
+    "approach.span": "один человек · сверху донизу",
+    "approach.note": "Большинство продактов держат верхние две строки. Я веду всю колонку — от гипотезы до кода.",
 
     "experience.label": "Опыт",
     "experience.title": "Опыт работы",
@@ -560,7 +646,7 @@ body::before{
     "cases.title": "What I do",
     "cases.hint": "Hover to preview — click to keep it open",
     "cases.items": [
-      { "icon":"annotate","tag":"Reflective AI · iOS + Web","title":"Aena — a thinking interface","essence":"Annotates the user's text in their own words — no advice, no generated content.","detail":"Aena annotates a user's entry: observations, contradictions, themes and open questions, each anchored to a specific fragment. The annotations come from a fine-tuned multi-task XLM-R model, not a prompted LLM: multi-label per-segment theme classification plus a separate safety head, int8-quantized for CPU inference. Processing is a deterministic pipeline with no LLM agents; the ML service is isolated and called over HTTP. The memory layer is projected into a Neo4j graph through a transactional outbox: entities, themes and contradictions linked by edges across entries. Clients are a native iOS app in SwiftUI and a React web app; the backend runs on FastAPI, Celery and PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI"] },
+      { "icon":"annotate","tag":"Reflective AI · iOS + Web","title":"Aena — a thinking interface","essence":"Annotates the user's text in their own words — no advice, no generated content.","detail":"Aena annotates an entry with exactly three kinds of note — observation, clarification and question — each anchored to a specific fragment; a Quality Gate checks every output for length, banned vocabulary and any hint of advice. Processing is a deterministic pipeline with no LLM agents; the ML service is isolated and called over HTTP. The theme classifier is pluggable: a deterministic RU+EN lexicon by default, with our own fine-tuned multi-task XLM-R model (per-segment multi-label themes plus a safety head, int8-quantized for CPU) as a selectable backend. The memory layer is projected into a Neo4j graph through a transactional outbox — entities, themes and contradictions linked by edges across entries, with Postgres staying the source of truth. An 8-module monorepo; clients are a native iOS app in SwiftUI and a React web app, backed by FastAPI, Celery and PostgreSQL.","stack":["XLM-R (multi-task)","FastAPI · Celery","Neo4j","SwiftUI · React"],"highlights":["Deterministic pipeline · no LLM agents","Isolated ML service over HTTP","Neo4j memory graph (transactional outbox)","8-module monorepo · Postgres source of truth"] },
       { "icon":"search","tag":"Executive search","title":"AI CRM for recruiting","essence":"Candidates stop getting lost in interview notes.","detail":"Data from dozens of interviews used to sit scattered in notes, and finding the right person was nearly impossible. I built a platform that transcribes the conversations, assembles a structured candidate profile — every fact backed by a quote, no made-up data — and finds people by meaning, not keywords. Analysts got out of the busywork and freed up roughly 1.5–2 hours a day each.","stack":["FastAPI","pgvector","RAG","React"] },
       { "icon":"clipboard","tag":"Consulting · HR analytics","title":"Company diagnostics platform","essence":"Company-health diagnostics without the manual survey grind.","detail":"Assessing the state of a large organization means hundreds of anonymous surveys and reports assembled by hand — nothing off-the-shelf existed. I built a closed platform for large anonymous org-development surveys (an adaptation of McKinsey's OHI): it gathers answers per department, and AI helps break down results across dimensions and assemble the report. Data stays in-region under local data-residency compliance.","stack":["Next.js","FastAPI","PostgreSQL","Docker"] },
       { "icon":"phone","tag":"Finance · Sales","title":"AI sales-call analysis","essence":"Every sales call reviewed — not just 5–10% by ear.","detail":"Managers only ever caught a handful of calls, so how the team actually handled objections stayed a mystery. I built a system that transcribes every call, checks it against the script, looks at objection handling and ties it to conversion. Instead of spot-checks — full analytics across the team, with results landing in the CRM automatically.","stack":["STT + diarization","LLM","CRM","Kubernetes"] },
@@ -570,12 +656,17 @@ body::before{
     ],
 
     "approach.label": "Approach",
-    "approach.title": "How I work",
-    "approach.pillars": [
-      { "title": "I own the whole product", "text": "From business hypothesis and unit economics to launch and metrics — I'm accountable for the outcome, not just one stage." },
-      { "title": "I build and lead the team", "text": "I set tasks for engineering and analytics, align business and engineers, and shape process and priorities." },
-      { "title": "Technically hands-on", "text": "I write and read code (Python, SQL, FastAPI, React) — I prototype myself and speak the engineers' language." }
+    "approach.title": "Product × Engineering",
+    "approach.frame": "operating range",
+    "approach.layers": [
+      { "domain": "business",   "items": ["hypothesis", "unit-economics", "P&L"] },
+      { "domain": "product",    "items": ["spec", "roadmap", "priorities"] },
+      { "domain": "team",       "items": ["tasks", "analytics", "cadence"] },
+      { "domain": "prototype",  "items": ["FastAPI", "SQL", "React"] },
+      { "domain": "ml · infra", "items": ["XLM-R", "Neo4j", "Celery", "k8s"] }
     ],
+    "approach.span": "one operator · top to bottom",
+    "approach.note": "Most product managers stop at the top two rows. I own the whole column — from hypothesis to code.",
 
     "experience.label": "Experience",
     "experience.title": "Experience",
@@ -746,16 +837,25 @@ body::before{
     card.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 
+  const CASE_SLUG = { annotate:'aena', search:'crm', clipboard:'diagnostics', phone:'calls', ml:'radar', mic:'voice', card:'payments', bot:'bot' };
+
   window.registerRenderer((tt, lng) => {
     const grid = document.getElementById('cases-grid');
     if (!grid) return;
-    grid.innerHTML = (window.CONTENT[lng]['cases.items'] || []).map(c => `
-      <article class="case-card" tabindex="0" role="button" aria-expanded="false">
-        <div class="case-head"><span class="case-icon" aria-hidden="true">${CASE_ICONS[c.icon] || ''}</span><span class="case-tag">${c.tag}</span></div>
+    const readLabel = lng === 'ru' ? 'подробнее' : 'detail';
+    const archLabel = lng === 'ru' ? 'архитектура' : 'architecture';
+    grid.innerHTML = (window.CONTENT[lng]['cases.items'] || []).map((c, i) => `
+      <article class="case-card${i === 0 ? ' case-card--lead' : ''}" tabindex="0" role="button" aria-expanded="false">
+        <div class="case-frame"><span class="case-slug">${CASE_SLUG[c.icon] || 'project'}</span></div>
         <h3 class="case-title">${c.title}</h3>
-        <div class="case-stack">${c.stack.map(s => `<span class="chip">${s}</span>`).join('')}</div>
         <p class="case-essence">${c.essence}</p>
+        <div class="case-meta">
+          <span class="mk">domain</span><span class="mv">${c.tag}</span>
+          <span class="mk">stack</span><span class="mv">${c.stack.join(' · ')}</span>
+        </div>
+        ${c.highlights ? `<div class="case-arch"><span class="arch-label">${archLabel}</span>${c.highlights.map(h => `<span class="arch-item">${h}</span>`).join('')}</div>` : ''}
         <div class="case-detail"><div class="case-detail-inner">${c.detail || ''}</div></div>
+        <div class="case-foot"><span class="case-more">${readLabel} <i class="car" aria-hidden="true">▸</i></span></div>
       </article>`).join('');
     const pin = (card) => card.setAttribute('aria-expanded', card.classList.toggle('pinned') ? 'true' : 'false');
     grid.onclick = (e) => { const card = e.target.closest('.case-card'); if (card) pin(card); };
@@ -769,8 +869,16 @@ body::before{
   window.registerRenderer((tt, lng) => {
     const g = document.getElementById('approach-grid');
     if (!g) return;
-    g.innerHTML = (window.CONTENT[lng]['approach.pillars'] || [])
-      .map((p, i) => `<div class="pillar"><div class="pillar-num">0${i + 1}</div><h3>${p.title}</h3><p>${p.text}</p></div>`).join('');
+    const c = window.CONTENT[lng];
+    const rows = (c['approach.layers'] || [])
+      .map(l => `<div class="span-row"><div class="span-domain">${l.domain}</div><div class="span-items">${(l.items || []).join(' · ')}</div></div>`)
+      .join('');
+    g.innerHTML =
+      `<div class="span-panel">` +
+        `<div class="span-frame"><span class="span-slug">${c['approach.frame'] || ''}</span><span class="span-cap">${c['approach.span'] || ''}</span></div>` +
+        `<div class="span-body"><div class="span-rows">${rows}</div></div>` +
+        `<p class="span-note">${c['approach.note'] || ''}</p>` +
+      `</div>`;
   });
 
   window.registerRenderer((tt, lng) => {
