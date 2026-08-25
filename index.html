@@ -261,7 +261,9 @@ body::before{
   backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);
   border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px}
-.nav-brand{font-weight:800;letter-spacing:-.02em;font-size:16px}
+.nav-brand{font-weight:600;letter-spacing:-.02em;font-size:16px;color:var(--ink-2);
+  text-decoration:none;transition:color .2s ease}
+.nav-brand:hover,.nav-brand:focus-visible{color:var(--ink)}
 .nav-links{display:flex;gap:24px;margin-left:auto}
 .nav-links a{font-size:14px;color:var(--ink-2);text-decoration:none;transition:color .2s ease}
 .nav-links a:hover{color:var(--accent)}
@@ -287,8 +289,6 @@ body::before{
 .contact-link{font-family:var(--font-mono);font-size:14px;color:var(--ink);text-decoration:none;
   border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .2s ease,border-color .2s ease}
 .contact-link:hover{color:var(--accent);border-color:var(--accent)}
-/* The résumé link hands over a file — the arrow says so before the click. */
-.contact-link--doc::after{content:"\00a0\2193";color:var(--accent-text)}
 
 /* ===== Footer ===== */
 .footer{border-top:1px solid var(--border);padding:28px 0}
@@ -403,7 +403,7 @@ body::before{
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="#hero">Даниил Меладзе</a>
+      <a class="nav-brand" href="#hero" data-i18n="brand.name"></a>
       <nav class="nav-links" id="nav-links">
         <a href="#cases" data-i18n="nav.cases"></a>
         <a href="#approach" data-i18n="nav.approach"></a>
@@ -504,7 +504,6 @@ body::before{
           <a class="btn-primary" data-i18n-href="contact.bot_url" data-i18n="contact.bot_cta" target="_blank" rel="noopener"></a>
           <a class="contact-link" data-i18n-href="contact.email_url" data-i18n="contact.email"></a>
           <a class="contact-link" data-i18n-href="contact.linkedin_url" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="contact-link contact-link--doc" data-i18n-href="contact.resume_url" data-i18n="contact.resume_cta" target="_blank" rel="noopener"></a>
         </div>
       </div>
     </section>
@@ -513,7 +512,7 @@ body::before{
     <div class="footer-inner">
       <span data-i18n="footer.note"></span>
       <span class="visitors-badge" id="visitors" hidden></span>
-      <span>© <span id="year"></span> Даниил Меладзе</span>
+      <span>© <span id="year"></span> <span data-i18n="brand.name"></span></span>
       <button class="console-open" id="console-open" type="button" aria-label="Open console" data-i18n-aria="console.open_label">›_</button>
     </div>
   </footer>
@@ -523,6 +522,7 @@ body::before{
   </div>
   <script>window.CONTENT = {
   ru: {
+    "brand.name": "Даниил Меладзе",
     "nav.cases": "Проекты",
     "nav.approach": "Подход",
     "nav.experience": "Опыт",
@@ -621,8 +621,6 @@ body::before{
     "contact.bot_url": "https://t.me/meladze1",
     "contact.email": "meladzemain@gmail.com",
     "contact.email_url": "mailto:meladzemain@gmail.com",
-    "contact.resume_cta": "Резюме (PDF)",
-    "contact.resume_url": "assets/meladze-daniil-resume.pdf",
     "lang.toggle_label": "Сменить язык",
     "contact.linkedin_url": "https://www.linkedin.com/in/meladzed/",
 
@@ -641,6 +639,7 @@ body::before{
   },
 
   en: {
+    "brand.name": "Daniil Meladze",
     "nav.cases": "Projects",
     "nav.approach": "Approach",
     "nav.experience": "Experience",
@@ -739,8 +738,6 @@ body::before{
     "contact.bot_url": "https://t.me/meladze1",
     "contact.email": "meladzemain@gmail.com",
     "contact.email_url": "mailto:meladzemain@gmail.com",
-    "contact.resume_cta": "Resume (PDF)",
-    "contact.resume_url": "assets/meladze-daniil-resume.pdf",
     "lang.toggle_label": "Switch language",
     "contact.linkedin_url": "https://www.linkedin.com/in/meladzed/",
 
